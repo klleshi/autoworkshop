@@ -1,69 +1,210 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoWorkShop App - Supporto</title>
-<style>
-body { 
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-margin: 0;
-padding: 40px;
-background-color: #f6f8fa;
-color: #24292e;
-}
-.container {
-max-width: 800px;
-margin: 0 auto;
-background-color: #ffffff;
-padding: 30px;
-border-radius: 8px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-h1 {
-border-bottom: 2px solid #eaecef;
-padding-bottom: 10px;
-}
-a {
-color: #0366d6;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-}
-ul {
-list-style-type: none;
-padding-left: 0;
-}
-li {
-padding: 10px 0;
-border-bottom: 1px solid #eaecef;
-}
-footer {
-margin-top: 30px;
-font-size: 0.9em;
-color: #586069;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Auto Workshop Pro - Il gestionale offline definitivo per la tua autofficina.">
+    <title>Auto Workshop Pro | Il Gestionale per Autofficine</title>
+    
+    <style>
+        /* --- VARIABILI COLORE --- */
+        :root {
+            --primary: #2c3e50; /* Blu scuro professionale */
+            --accent: #3498db;  /* Azzurro per link e bottoni secondari */
+            --success: #27ae60; /* Verde per il bottone di acquisto */
+            --bg-light: #f8f9fa;
+            --text-main: #333333;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* --- CALL TO ACTION (BOTTONI) --- */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-download {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-download:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-buy {
+            background-color: var(--success);
+            color: white;
+            border: 2px solid var(--success);
+        }
+
+        .btn-buy:hover {
+            background-color: #219653;
+            border-color: #219653;
+        }
+
+        /* --- CONTENUTO PRINCIPALE --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #eaecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+            color: #2980b9;
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: var(--text-muted);
+            border-top: 1px solid #eaecef;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>AutoWorkShop App</h1>
-<p>Benvenuto nel centro di supporto e documentazione di AutoWorkShop.</p>
 
-<h2>Documenti Legali</h2>
-<ul>
-<li><a href="autoworkshop/privacy.html">Informativa sulla Privacy</a></li>
-<li><a href="autoworkshop/terms.html">Termini di Servizio</a></li>
-</ul>
+    <header class="hero">
+        <h1>🛠️ Auto Workshop Pro</h1>
+        <p>Il software gestionale offline, veloce e sicuro, progettato su misura per la tua autofficina.</p>
+        
+        <div class="cta-container">
+            <a href="#" class="btn btn-download">⬇️ Scarica Prova Gratuita (30 Giorni)</a>
+            
+            <a href="#" class="btn btn-buy">💎 Acquista Licenza a Vita - €</a>
+        </div>
+    </header>
 
-<h2>Supporto / Support</h2>
-<p>Per richieste di supporto contattaci:</p>
-        <p><a href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a></p>
+    <div class="container">
+        
+        <div class="card">
+            <h2>Supporto Tecnico</h2>
+            <p>Hai bisogno di aiuto con l'installazione, hai perso la tua chiave di licenza o vuoi segnalare un problema?</p>
+            <p>Il nostro team di supporto è a tua disposizione. Scrivici una mail a:</p>
+            <a href="mailto:klleshi99@gmail.com" class="contact-email">✉️ klleshi99@gmail.com</a>
+        </div>
 
-<footer>
-<p>&copy; 2026 AutoWorkShop</p>
-</footer>
-</div>
+        <div class="card">
+            <h2>Documenti Legali</h2>
+            <p>La tua privacy è la nostra priorità. Auto Workshop Pro salva i dati localmente sul tuo PC.</p>
+            <ul>
+                <li><a href="autoworkshop/privacy.html">📄 Informativa sulla Privacy</a></li>
+                <li><a href="autoworkshop/terms.html">⚖️ Termini di Servizio</a></li>
+                <li><a href="autoworkshop/faq.html">❓ Domande Frequenti (FAQ)</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Auto Workshop Pro. Sviluppato da klleshi.</p>
+    </footer>
+
 </body>
 </html>
