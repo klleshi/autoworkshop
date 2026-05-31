@@ -59,7 +59,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            align-items: center; /* Allinea i bottoni centralmente anche se hanno altezze diverse */
+            align-items: center;
         }
 
         .btn {
@@ -99,12 +99,11 @@
             border-color: #219653;
         }
 
-        /* Nuovo bottone Android */
         .btn-android {
             background-color: white;
             color: var(--success);
             border: 2px solid var(--success);
-            padding: 10px 20px; /* Padding ridotto per bilanciare le due righe di testo */
+            padding: 10px 20px;
             line-height: 1.3;
         }
 
@@ -129,6 +128,12 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-top: 4px solid var(--accent);
         }
+        
+        /* Nuova classe per la card degli aggiornamenti che prende tutta la larghezza */
+        .card-full {
+            grid-column: 1 / -1; 
+            border-top: 4px solid var(--success);
+        }
 
         .card h2 {
             color: var(--primary);
@@ -136,6 +141,12 @@
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-size: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
         }
 
         .card ul {
@@ -149,6 +160,54 @@
 
         .card li:last-child {
             border-bottom: none;
+        }
+
+        /* Stili specifici per le liste del changelog per renderle più compatte */
+        .changelog-list {
+            margin-left: 15px;
+        }
+        
+        .changelog-list li {
+            padding: 6px 0;
+            border-bottom: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .changelog-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .sub-list {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .sub-list li {
+            padding: 4px 0;
+        }
+
+        .sub-list li::before {
+            content: "-";
+            color: #7f8c8d;
+        }
+
+        .badge-new {
+            background-color: var(--success);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            vertical-align: middle;
+            margin-left: 10px;
+            font-weight: normal;
         }
 
         .card a {
@@ -196,11 +255,11 @@
         </p>
         
         <div class="cta-container">
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.1.0/AutoWorkShop_windows.zip" class="btn btn-download">🪟 Scarica per Windows</a>
+            <!-- I link sono stati aggiornati alla versione v1.2.0 -->
+            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.2.0/AutoWorkShop_windows.zip" class="btn btn-download">🪟 Scarica per Windows</a>
             
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.1.0/AutoWorkShop_linux.zip" class="btn btn-download">🐧 Scarica per Linux</a>
+            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.2.0/AutoWorkShop_linux.zip" class="btn btn-download">🐧 Scarica per Linux</a>
             
-            <!-- Bottone Android Modificato con Sottotitolo -->
             <a href="mailto:klleshi99@gmail.com?subject=Richiesta%20App%20Android%20-%20Auto%20Workshop%20Pro&body=Ciao,%0D%0A%0D%0AVorrei%20essere%20avvisato%20non%20appena%20la%20versione%20per%20Tablet%20e%20Smartphone%20Android%20sar%C3%A0%20disponibile!%0D%0A%0D%0AGrazie." class="btn btn-android">
                 📱 App Android<br>
                 <span style="font-size: 0.85rem; font-weight: normal;">(Presto disponibile - Avvisami)</span>
@@ -215,6 +274,32 @@
     </header>
 
     <div class="container">
+        
+        <!-- NUOVA SEZIONE CHANGELOG v1.2.0 -->
+        <div class="card card-full">
+            <h2>🚀 Aggiornamento v1.2.0 <span class="badge-new">NUOVO</span></h2>
+            <p>Consigliamo a tutti gli utenti di aggiornare a questa versione per garantire la massima sicurezza dei dati dell'officina. Questo aggiornamento introduce un sistema completo di permessi e miglioramenti cruciali alla gestione contabile.</p>
+            
+            <h3>🌟 Nuove Funzionalità</h3>
+            <ul class="changelog-list">
+                <li><strong>Gestione Permessi e Ruoli (RBAC):</strong> Introdotto un sistema di sicurezza gerarchico.
+                    <ul class="sub-list">
+                        <li>👑 <strong>Amministratore:</strong> Accesso totale. Autorizzato a eliminare fatture, clienti e buste paga.</li>
+                        <li>👩‍💼 <strong>Segreteria:</strong> Accesso a contabilità e gestione lavori, con blocco sull'eliminazione dei documenti storici.</li>
+                        <li>🔧 <strong>Meccanico:</strong> Interfaccia focalizzata esclusivamente sull'operatività di officina (Bozze, Lavori, Catalogo).</li>
+                    </ul>
+                </li>
+                <li><strong>Modifica Fatture Completate e Gestione Resi:</strong> Ora è possibile riaprire e modificare un lavoro anche dopo la consegna e il pagamento. Il sistema permette di registrare comodamente un <strong>Incasso extra</strong> o un <strong>Reso/Rimborso</strong>.</li>
+            </ul>
+
+            <h3>📈 Miglioramenti</h3>
+            <ul class="changelog-list">
+                <li><strong>Stato Finanziario Dinamico:</strong> Le card dello storico auto ora mostrano in modo chiaro e immediato lo stato del bilancio con etichette dedicate (✓ SALDATO, ⚠ DEBITORE o ⚠ CREDITORE).</li>
+                <li><strong>UI/UX Dashboard:</strong> Ridisegnato il menu laterale per adattarsi dinamicamente ai vari schermi, risolvendo i problemi di overflow visivo.</li>
+            </ul>
+
+        </div>
+        <!-- FINE SEZIONE CHANGELOG -->
         
         <div class="card">
             <h2>Supporto Tecnico</h2>
