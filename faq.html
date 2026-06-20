@@ -3,76 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Auto Workshop Pro</title>
+    <title>Domande Frequenti | Auto Workshop Pro</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #3498db; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eaecef; padding-bottom: 10px; margin-bottom: 30px; }
-        .faq-item { margin-bottom: 25px; border-bottom: 1px solid #f1f1f1; padding-bottom: 20px; }
-        .faq-item:last-child { border-bottom: none; }
-        h3 { color: #2c3e50; margin-bottom: 10px; font-size: 1.2rem; }
-        p { color: #555; margin-bottom: 0; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eaecef; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
+        .faq-item { margin-bottom: 15px; border: 1px solid #eaecef; border-radius: 8px; overflow: hidden; background-color: #fff; }
+        .faq-question { background-color: #fdfdfd; padding: 18px 20px; cursor: pointer; font-weight: bold; color: #2c3e50; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-question:hover { background-color: #f5f7fa; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; background-color: #fafbfc; color: #555; border-top: 0 solid #eaecef; }
+        .faq-item.active .faq-answer { padding: 20px; max-height: 500px; border-top: 1px solid #eaecef; }
+        .faq-question::after { content: '➔'; display: inline-block; transform: rotate(90deg); transition: transform 0.3s ease; color: #95a5a6; font-size: 0.9rem; }
+        .faq-item.active .faq-question::after { transform: rotate(-90deg); color: #3498db; }
+        .cta-section { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eaecef; }
+        .btn-download { display: inline-block; background-color: #3498db; color: white; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background-color 0.2s; margin-top: 15px; }
+        .btn-download:hover { background-color: #2980b9; }
         a.back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
         a.back-link:hover { text-decoration: underline; }
-        
-        /* Stile per la Call to Action finale */
-        .cta-section { margin-top: 40px; padding-top: 30px; border-top: 2px dashed #eaecef; text-align: center; }
-        .cta-button { display: inline-block; background-color: #2ecc71; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; transition: background 0.3s; margin-top: 15px; }
-        .cta-button:hover { background-color: #27ae60; }
-        .highlight { font-weight: bold; color: #2c3e50; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-link">&larr; Torna alla Home</a>
         <h1>Domande Frequenti (FAQ)</h1>
-        
+
         <div class="faq-item">
-            <h3>Cosa fa esattamente Auto Workshop Pro?</h3>
-            <p>È il gestionale definitivo creato su misura per le autofficine. Ti permette di creare <span class="highlight">preventivi e fatture in pochi secondi</span> (anche usando "Kit" di lavori frequenti), gestire l'anagrafica dei clienti e il loro parco auto, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'unica schermata pulita e senza distrazioni.</p>
+            <div class="faq-question">Cosa fa esattamente Auto Workshop Pro?</div>
+            <div class="faq-answer">
+                È il gestionale definitivo creato su misura per le autofficine, ora disponibile sia per computer <strong>Desktop</strong> che per <strong>Tablet</strong>. Ti permette di creare preventivi e fatture in pochi secondi (anche usando i "Kit" di lavori frequenti), gestire l'anagrafica dei clienti e il loro parco auto, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'interfaccia pulita, rapida e senza distrazioni.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Come si installa il software? È difficile?</h3>
-            <p>L'installazione è a prova di principiante! Non ci sono database complessi da configurare o procedure macchinose. Ti basterà <span class="highlight">scaricare il file, estrarre la cartella (ad esempio sul Desktop) e fare doppio clic sull'icona</span> dell'app. Il programma è "Portable" (portatile): è subito pronto all'uso.</p>
+            <div class="faq-question">Come si installa il software? È disponibile per smartphone?</div>
+            <div class="faq-answer">
+                <p><strong>Su PC (Windows/Linux):</strong> L'installatione è a prova di principiante! Il programma è "Portable" (portatile): ti basterà scaricare il file, estrarre la cartella ed è subito pronto all'uso, senza database complessi da configurare.</p>
+                <p><strong>Su Tablet (Android):</strong> Puoi scaricarlo direttamente dal Google Play Store tramite il link di invito riservato ai tester.</p>
+                <p><em>Nota tecnica:</em> Per garantire la massima leggibilità dell'interfaccia grafica e la comodità d'uso tra i ponti dell'officina, il software è ottimizzato <strong>esclusivamente per Tablet (da 7 pollici in su, larghezza minima 600dp)</strong> e computer. Non è supportato su smartphone.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Serve una connessione internet per usarlo?</h3>
-            <p>No! Auto Workshop Pro è stato progettato per funzionare <span class="highlight">offline al 100%</span>. Il database risiede in modo sicuro sul tuo computer, garantendoti la massima velocità e privacy sui dati dei tuoi clienti. La connessione internet ti servirà solamente per un istante, al termine della prova gratuita, per validare la tua chiave di licenza.</p>
+            <div class="faq-question">Serve una connessione internet per usarlo?</div>
+            <div class="faq-answer">
+                No! Auto Workshop Pro è un'applicazione progettata per funzionare offline. Il database risiede esclusivamente in locale sul tuo dispositivo, garantendoti la massima velocità di esecuzione e la privacy assoluta sui dati sensibili dei tuoi clienti. La connessione internet è richiesta unicamente per un istante, al momento dell'avvio, per la convalida iniziale e periodica della licenza tramite i sistemi sicuri di Google Play o Lemon Squeezy.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Cosa succede dopo i 30 giorni di prova gratuita? Perdo i miei dati?</h3>
-            <p>Assolutamente no. I tuoi dati, preventivi e anagrafiche sono salvi sul tuo PC. Allo scadere dei 30 giorni il software si bloccherà chiedendoti di inserire una Chiave di Licenza valida. Una volta acquistata e inserita, sbloccherai l'app e <span class="highlight">ritroverai tutto esattamente come lo avevi lasciato</span>.</p>
+            <div class="faq-question">Cosa succede dopo i 30 giorni di prova gratuita? Perdo i miei dati?</div>
+            <div class="faq-answer">
+                Assolutamente no. Tutti i dati, i preventivi e le anagrafiche inserite rimangono al sicuro sul tuo dispositivo fisico. Allo scadere dei 30 giorni il software si bloccherà chiedendoti di attivare una licenza valida per continuare a inserire dati ed esportare documenti. Una volta sbloccato, ritroverai tutto esattamente come lo avevi lasciato.<br><br>
+                <em>Nota:</em> Le funzioni di Esportazione e Ripristino dei Backup sono accessibili solo dopo l'acquisto della licenza Premium per garantire l'integrità dell'applicazione.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Si tratta di un abbonamento mensile?</h3>
-            <p>No, odiamo gli abbonamenti mensili tanto quanto te! L'acquisto prevede una <span class="highlight">licenza a vita (Una Tantum)</span>. Paghi una volta sola ed il software è tuo per sempre, senza nessun costo nascosto.</p>
+            <div class="faq-question">Si tratta di un abbonamento mensile?</div>
+            <div class="faq-answer">
+                No, odiamo gli abbonamenti mensili tanto quanto te! L'acquisto prevede una licenza d'uso a vita (Una Tantum). Paghi una volta sola ed il software è tuo per sempre, senza costi ricorrenti o canoni nascosti.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Posso usare la licenza su più computer?</h3>
-            <p>La singola licenza è valida per una sola postazione (il PC principale in officina). Se desideri installare e usare il software su più computer contemporaneamente, dovrai acquistare chiavi aggiuntive.</p>
+            <div class="faq-question">Posso usare la licenza su più dispositivi?</div>
+            <div class="faq-answer">
+                Le condizioni d'uso variano in base alla piattaforma utilizzata:
+                <ul>
+                    <li><strong>Versione Desktop (PC):</strong> La licenza è strettamente legata all'hardware ed è valida per una (1) singola postazione PC aziendale.</li>
+                    <li><strong>Versione Tablet (Android):</strong> La licenza è associata al tuo Account Google (Gmail), permettendoti di installarla e utilizzarla sui dispositivi touch associati a quell'account, in conformità con le regole standard del Google Play Store.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Cosa succede se cambio o formatto il PC dell'officina?</h3>
-            <p>Nessun problema. Ricordati di usare la funzione "Esporta Backup" dalle Impostazioni del vecchio PC per salvare i tuoi dati su una chiavetta USB. Poi copia l'intera cartella del programma sul nuovo PC e fai "Ripristina Backup". Per sbloccare la licenza sul nuovo computer, ti basterà inviarci una rapida email e scollegheremo la chiave dal vecchio PC.</p>
+            <div class="faq-question">Cosa succede se cambio o formatto il mio dispositivo?</div>
+            <div class="faq-answer">
+                <ul>
+                    <li><strong>Su PC:</strong> Con la licenza attiva, ti basterà usare la funzione "Esporta Backup" su una chiavetta USB, installare il programma sul nuovo computer e fare "Ripristina Backup". Inviaci una rapida email per chiederci di scollegare la chiave dal vecchio PC e associarla al nuovo.</li>
+                    <li><strong>Su Tablet:</strong> È ancora più semplice. Essendo la licenza legata al tuo account Gmail, se cambi tablet ti basterà accedere con la stessa email sul Play Store per riscaricare l'app in modalità Premium senza alcuna procedura manuale.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Come ricevo la fattura del mio acquisto?</h3>
-            <p>I pagamenti sono gestiti in modo automatico e sicuro dal nostro partner internazionale <em>Lemon Squeezy</em>. Subito dopo l'acquisto riceverai un'email contenente la tua chiave di attivazione e il link per scaricare la fattura con IVA corretta per la tua attività commerciale.</p>
+            <div class="faq-question">Come ricevo la fattura e come funzionano i rimborsi?</div>
+            <div class="faq-answer">
+                I pagamenti sono gestiti dai leader mondiali della sicurezza transazionale:
+                <ul>
+                    <li><strong>Su PC (Lemon Squeezy):</strong> Ricevi la fattura subito dopo l'acquisto via email. Offriamo una garanzia di rimborso di 14 giorni se il software non soddisfa le tue aspettative.</li>
+                    <li><strong>Su Tablet (Google Play):</strong> L'acquisto è gestito da Google, e puoi richiedere il rimborso direttamente dal tuo account Play Store entro la finestra standard di 48 ore dall'acquisto.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="cta-section">
-            <h3>Hai ancora dei dubbi?</h3>
+            <h2>Hai ancora dei dubbi?</h2>
             <p>Il modo migliore per capire se Auto Workshop Pro fa per te è provarlo direttamente in officina.</p>
-            <a href="index.html" class="cta-button">Scarica la Prova Gratuita di 30 Giorni</a>
+            <a href="index.html" class="btn-download">Scarica la Prova Gratuita di 30 Giorni</a>
         </div>
-
     </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                } else {
+                    document.querySelectorAll('.faq-item').forEach(child => child.classList.remove('active'));
+                    parent.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
