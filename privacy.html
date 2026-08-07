@@ -9,33 +9,52 @@
         .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #3498db; }
         h1 { color: #2c3e50; border-bottom: 2px solid #eaecef; padding-bottom: 10px; margin-bottom: 30px; }
         h2 { color: #2c3e50; margin-top: 30px; font-size: 1.3rem; }
-        p { margin-bottom: 15px; color: #555; }
+        p, ul { margin-bottom: 15px; color: #555; }
+        li { margin-bottom: 8px; }
         a.back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
         a.back-link:hover { text-decoration: underline; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-link">&larr; Torna alla Home</a>
         <h1>Informativa sulla Privacy</h1>
-        <p><em>Ultimo aggiornamento: 15 Luglio 2026</em></p>
+        <p><em>Ultimo aggiornamento: 8 Agosto 2026</em></p>
         
         <h2>1. Raccolta e Memorizzazione dei Dati</h2>
-        <p><strong>Auto Workshop Pro</strong> è un'applicazione per Desktop e Tablet progettata per funzionare completamente offline. Nessun dato sensibile inserito nell'applicazione (clienti, fatture, veicoli) viene trasmesso ai nostri server. Tutti i dati risiedono esclusivamente in locale sul dispositivo dell'utente.</p>
+        <p>
+        Auto Workshop Pro è un'applicazione per Desktop e Tablet progettata per funzionare completamente offline. Nessun dato sensibile inserito nell'applicazione (clienti, fatture, veicoli) viene trasmesso ai nostri server. Tutti i dati risiedono esclusivamente in locale sul dispositivo dell'utente.
+        </p>
 
-        <h2>2. Dati di Pagamento</h2>
+        <h2>2. Sicurezza e Backup Cloud (Google Drive)</h2>
+        <p>
+        L'applicazione opera principalmente offline sul tuo dispositivo. Tuttavia, Auto Workshop Pro offre una funzionalità facoltativa per proteggere i tuoi dati eseguendo il backup del database su Google Drive. Se scegli di attivare questa funzione collegando il tuo account Google:
+        </p>
+        <ul>
+            <li>L'applicazione utilizzerà le API di Google Drive <strong>esclusivamente</strong> per creare la cartella di backup, caricare i nuovi salvataggi e ripristinare i dati in caso di necessità.</li>
+            <li>L'applicazione richiede solo i permessi strettamente necessari (<code>drive.file</code>) e ha accesso <strong>solo ai file creati dall'applicazione stessa</strong>. Non può leggere, modificare o accedere a documenti, foto o altri file personali presenti nel tuo Google Drive.</li>
+            <li>I file di backup risiedono nel tuo spazio di archiviazione personale di Google Drive, sotto il tuo completo controllo, e non transitano mai su server di nostra proprietà.</li>
+        </ul>
+
+        <h2>3. Condivisione dei Dati</h2>
+        <p>Non vendiamo, non scambiamo e non trasferiamo in alcun modo a terze parti i tuoi dati, semplicemente perché non ne entriamo mai in possesso.</p>
+        
+        <h2>4. Uso dei Dati delle API di Google (Limitazione d'Uso)</h2>
+        <p>
+        L'uso e il trasferimento ad altre app da parte di Auto Workshop Pro di informazioni ricevute dalle API di Google rispetteranno la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, inclusi i requisiti di Uso Limitato (Limited Use requirements). Non vendiamo, condividiamo o elaboriamo in alcun modo i tuoi dati cloud per scopi pubblicitari o commerciali.
+        </p>
+        
+        <h2>5. Cancellazione dei Dati</h2>
+        <p>
+        Poiché tutti i dati risiedono localmente, puoi procedere alla cancellazione totale e definitiva di ogni informazione semplicemente disinstallando l'applicazione o cancellando i dati dell'app dalle impostazioni del sistema operativo del tuo dispositivo. Si consiglia di effettuare un backup prima di procedere, poiché la cancellazione sarà irreversibile.
+        </p>
+
+        <h2>6. Dati di Pagamento</h2>
         <p>L'acquisto della licenza del software è gestito tramite Google Play per la parte Android (Tablet) e Lemon Squeezy per la parte Desktop. Quando acquisti una licenza, i dati della tua carta di credito e le informazioni di fatturazione sono gestiti in modo sicuro e crittografato direttamente da Google Play e Lemon Squeezy, che agiscono in totale conformità con il GDPR. Noi non visualizziamo, elaboriamo o conserviamo mai i tuoi dati finanziari.</p>
 
-        <h2>3. Sicurezza e Backup</h2>
-        <p>Poiché i dati risiedono unicamente sul tuo dispositivo fisico, la sicurezza e la conservazione degli stessi sono sotto la tua esclusiva responsabilità. Ti consigliamo vivamente di utilizzare la funzione di esportazione integrata nell'app per creare backup periodici su supporti esterni.</p>
-
-        <h2>4. Condivisione dei Dati</h2>
-        <p>Non vendiamo, non scambiamo e non trasferiamo in alcun modo a terze parti i tuoi dati, semplicemente perché non ne entriamo mai in possesso.</p>
-
-        <h2>5. Cancellazione dei Dati</h2>
-        <p>Poiché tutti i dati risiedono localmente, puoi procedere alla cancellazione totale e definitiva di ogni informazione semplicemente disinstallando l'applicazione o cancellando i dati dell'app dalle impostazioni del sistema operativo del tuo dispositivo. Si consiglia di effettuare un backup prima di procedere, poiché la cancellazione sarà irreversibile.</p>
-
-        <h2>6. Contatti</h2>
+        <h2>7. Contatti</h2>
         <p>Per qualsiasi domanda riguardante questa informativa sulla privacy, puoi contattarci all'indirizzo: <a href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a>.</p>
     </div>
 </body>
