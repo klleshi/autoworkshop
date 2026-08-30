@@ -12,9 +12,10 @@
         .faq-question { background-color: #fdfdfd; padding: 18px 20px; cursor: pointer; font-weight: bold; color: #2c3e50; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .faq-question:hover { background-color: #f5f7fa; }
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; background-color: #fafbfc; color: #555; border-top: 0 solid #eaecef; }
-        .faq-item.active .faq-answer { padding: 20px; max-height: 500px; border-top: 1px solid #eaecef; }
+        .faq-item.active .faq-answer { padding: 20px; max-height: 800px; border-top: 1px solid #eaecef; } /* Aumentato max-height per risposte lunghe */
         .faq-question::after { content: '➔'; display: inline-block; transform: rotate(90deg); transition: transform 0.3s ease; color: #95a5a6; font-size: 0.9rem; }
         .faq-item.active .faq-question::after { transform: rotate(-90deg); color: #3498db; }
+        .badge-new { background-color: #2ecc71; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 10px; vertical-align: middle; }
         .cta-section { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eaecef; }
         .btn-download { display: inline-block; background-color: #3498db; color: white; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background-color 0.2s; margin-top: 15px; }
         .btn-download:hover { background-color: #2980b9; }
@@ -30,77 +31,73 @@
         <div class="faq-item">
             <div class="faq-question">Cosa fa esattamente Auto Workshop Pro?</div>
             <div class="faq-answer">
-                È il gestionale definitivo creato su misura per le autofficine, ora disponibile sia per computer <strong>Desktop</strong> che per <strong>Tablet</strong>. Ti permette di creare preventivi e fatture in pochi secondi (anche usando i "Kit" di lavori frequenti), gestire l'anagrafica dei clienti e il loro parco auto, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'interfaccia pulita, rapida e senza distrazioni.
+                È il gestionale definitivo creato su misura per le autofficine, ora disponibile sia per computer <strong>Desktop</strong> che per <strong>Tablet</strong>. Ti permette di creare preventivi e fatture in pochi secondi, gestire l'anagrafica dei clienti e il loro parco auto, segnare gli appuntamenti sul calendario, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'interfaccia pulita, rapida e senza distrazioni.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Posso segnare gli appuntamenti in officina? <span class="badge-new">NOVITÀ</span></div>
+            <div class="faq-answer">
+                Certamente! Abbiamo introdotto un <strong>Calendario integrato</strong>. Ora puoi aggiungere gli appuntamenti dei tuoi clienti, pianificare i lavori in ingresso e tenere la tua agenda sempre sotto controllo direttamente dall'app.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Come funzionano le notifiche? <span class="badge-new">NOVITÀ</span></div>
+            <div class="faq-answer">
+                La tua Dashboard principale è ora dotata di un centro notifiche intelligente. Ti avviserà tempestivamente per eventi importanti e ti segnalerà subito quando è disponibile un nuovo aggiornamento del software, così sarai sempre al passo con le ultime novità.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">L'app è a pagamento o c'è una prova? <span class="badge-new">AGGIORNATO</span></div>
+            <div class="faq-answer">
+                Auto Workshop Pro non scade mai! Offriamo una <strong>versione Base (Freemium) gratuita per sempre</strong>, che ti permette di effettuare fino a 15 preventivi al mese ed eseguire backup manuali.<br><br>
+                Se desideri eliminare il limite mensile e sbloccare funzioni esclusive (come i preventivi illimitati e il Backup Automatico su Google Drive), puoi passare alla <strong>versione Premium con un SINGOLO pagamento a vita</strong>. Nessun abbonamento mensile o costo nascosto!
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">Come si installa il software? È disponibile per smartphone?</div>
             <div class="faq-answer">
-                <p><strong>Su PC (Windows/Linux):</strong> L'installatione è a prova di principiante! Il programma è "Portable" (portatile): ti basterà scaricare il file, estrarre la cartella ed è subito pronto all'uso, senza database complessi da configurare.</p>
-                <p><strong>Su Tablet (Android):</strong> Puoi scaricarlo direttamente dal Google Play Store tramite il link di invito riservato ai tester.</p>
-                <p><em>Nota tecnica:</em> Per garantire la massima leggibilità dell'interfaccia grafica e la comodità d'uso tra i ponti dell'officina, il software è ottimizzato <strong>esclusivamente per Tablet (da 7 pollici in su, larghezza minima 600dp)</strong> e computer. Non è supportato su smartphone.</p>
+                <p><strong>Su PC (Windows/Linux):</strong> L'installazione è a prova di principiante! Il programma è "Portable": ti basterà scaricare il file, estrarre la cartella ed è subito pronto all'uso, senza database complessi da configurare.</p>
+                <p><strong>Su Tablet (Android):</strong> Puoi scaricarlo direttamente dal Google Play Store.</p>
+                <p><em>Nota tecnica:</em> Per garantire la massima leggibilità dell'interfaccia grafica e la comodità d'uso tra i ponti dell'officina, il software è ottimizzato <strong>esclusivamente per Tablet (da 7 pollici in su)</strong> e computer. Non è supportato su smartphone.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">Serve una connessione internet per usarlo?</div>
             <div class="faq-answer">
-                No! Auto Workshop Pro è un'applicazione progettata per funzionare offline. Il database risiede esclusivamente in locale sul tuo dispositivo, garantendoti la massima velocità di esecuzione e la privacy assoluta sui dati sensibili dei tuoi clienti. La connessione internet è richiesta unicamente per un istante, al momento dell'avvio, per la convalida iniziale e periodica della licenza tramite i sistemi sicuri di Google Play o Lemon Squeezy.
+                No! Auto Workshop Pro funziona in locale. Il database risiede sul tuo dispositivo, garantendoti velocità estrema e privacy assoluta sui dati dei clienti. La connessione internet è richiesta unicamente per il <strong>Backup Automatico su Google Drive</strong> (nella versione Premium) e per la verifica periodica della licenza.
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">Cosa succede dopo i 30 giorni di prova gratuita? Perdo i miei dati?</div>
+            <div class="faq-question">Come faccio a non perdere i dati in caso di guasto?</div>
             <div class="faq-answer">
-                Assolutamente no. Tutti i dati, i preventivi e le anagrafiche inserite rimangono al sicuro sul tuo dispositivo fisico. Allo scadere dei 30 giorni il software si bloccherà chiedendoti di attivare una licenza valida per continuare a inserire dati ed esportare documenti. Una volta sbloccato, ritroverai tutto esattamente come lo avevi lasciato.<br><br>
-                <em>Nota:</em> Le funzioni di Esportazione e Ripristino dei Backup sono accessibili solo dopo l'acquisto della licenza Premium per garantire l'integrità dell'applicazione.
+                <ul>
+                    <li><strong>Nella versione Base (Gratuita):</strong> Puoi usare la funzione "Esporta Backup" per salvare manualmente i tuoi dati su una chiavetta USB e ripristinarli quando vuoi in totale autonomia.</li>
+                    <li><strong>Nella versione Premium:</strong> L'app effettua automaticamente un <strong>Backup sul tuo Google Drive personale ogni 8 ore. Il sistema è intelligente e conserva sempre in memoria gli ultimi 5 salvataggi</strong>. In caso di guasto del PC o del Tablet, ti basterà installare l'app sul nuovo dispositivo e cliccare su "Ripristina da Google Drive" per riavere tutto indietro istantaneamente!</li>
+                </ul>
             </div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-question">Si tratta di un abbonamento mensile?</div>
-            <div class="faq-answer">
-                No, odiamo gli abbonamenti mensili tanto quanto te! L'acquisto prevede una licenza d'uso a vita (Una Tantum). Paghi una volta sola ed il software è tuo per sempre, senza costi ricorrenti o canoni nascosti.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Posso usare la licenza su più dispositivi?</div>
+            <div class="faq-question">Posso usare la licenza Premium su più dispositivi?</div>
             <div class="faq-answer">
                 Le condizioni d'uso variano in base alla piattaforma utilizzata:
                 <ul>
                     <li><strong>Versione Desktop (PC):</strong> La licenza è strettamente legata all'hardware ed è valida per una (1) singola postazione PC aziendale.</li>
-                    <li><strong>Versione Tablet (Android):</strong> La licenza è associata al tuo Account Google (Gmail), permettendoti di installarla e utilizzarla sui dispositivi touch associati a quell'account, in conformità con le regole standard del Google Play Store.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Cosa succede se cambio o formatto il mio dispositivo?</div>
-            <div class="faq-answer">
-                <ul>
-                    <li><strong>Su PC:</strong> Con la licenza attiva, ti basterà usare la funzione "Esporta Backup" su una chiavetta USB, installare il programma sul nuovo computer e fare "Ripristina Backup". Inviaci una rapida email per chiederci di scollegare la chiave dal vecchio PC e associarla al nuovo.</li>
-                    <li><strong>Su Tablet:</strong> È ancora più semplice. Essendo la licenza legata al tuo account Gmail, se cambi tablet ti basterà accedere con la stessa email sul Play Store per riscaricare l'app in modalità Premium senza alcuna procedura manuale.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Come ricevo la fattura e come funzionano i rimborsi?</div>
-            <div class="faq-answer">
-                I pagamenti sono gestiti dai leader mondiali della sicurezza transazionale:
-                <ul>
-                    <li><strong>Su PC (Lemon Squeezy):</strong> Ricevi la fattura subito dopo l'acquisto via email. Offriamo una garanzia di rimborso di 14 giorni se il software non soddisfa le tue aspettative.</li>
-                    <li><strong>Su Tablet (Google Play):</strong> L'acquisto è gestito da Google, e puoi richiedere il rimborso direttamente dal tuo account Play Store entro la finestra standard di 48 ore dall'acquisto.</li>
+                    <li><strong>Versione Tablet (Android):</strong> La licenza è associata al tuo Account Google (Gmail), permettendoti di utilizzarla sui dispositivi touch associati a quell'account, in conformità con le regole del Google Play Store.</li>
                 </ul>
             </div>
         </div>
 
         <div class="cta-section">
-            <h2>Hai ancora dei dubbi?</h2>
-            <p>Il modo migliore per capire se Auto Workshop Pro fa per te è provarlo direttamente in officina.</p>
-            <a href="index.html" class="btn-download">Scarica la Prova Gratuita di 30 Giorni</a>
+            <h2>Pronto a trasformare la tua officina?</h2>
+            <p>Il modo migliore per capire se Auto Workshop Pro fa per te è provarlo direttamente al lavoro.</p>
+            <a href="index.html" class="btn-download">Scarica Subito la Versione Gratuita</a>
         </div>
     </div>
 
