@@ -18,6 +18,7 @@
     <link rel="canonical" href="https://autoworkshop.klleshi.com/" />
     
     <title>Auto Workshop Pro</title>
+
     <style>
         /* --- VARIABILI COLORE --- */
         :root {
@@ -112,9 +113,11 @@
         }
 
         .btn-android {
-            background-color: var(--android);
-            color: white;
+            background-color: white;
+            color: var(--android);
             border: 2px solid var(--android);
+            padding: 10px 20px;
+            line-height: 1.3;
         }
 
         .btn-android:hover {
@@ -139,7 +142,7 @@
             border-top: 4px solid var(--accent);
         }
         
-        /* Nuova classe per la card degli aggiornamenti che prende tutta la larghezza */
+        /* Classe per la card degli aggiornamenti che prende tutta la larghezza */
         .card-full {
             grid-column: 1 / -1; 
             border-top: 4px solid var(--success);
@@ -250,6 +253,25 @@
             color: var(--text-muted);
             border-top: 1px solid #eaecef;
         }
+        
+        /* --- ANTEPRIMA DASHBOARD --- */
+        .dashboard-preview-container {
+            text-align: center;
+            max-width: 800px; /* Dimensione corretta, 300px era troppo piccolo */
+            margin: 20px auto -25px auto; /* Tolto il -30px! Ora starà esattamente sotto la fascia blu */
+            padding: 0 10px;
+            position: relative;
+        }
+
+        .dashboard-preview {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 4px solid white; /* Cornice bianca per farla risaltare */
+            background-color: var(--bg-light);
+        }
+        
     </style>
 </head>
 <body>
@@ -259,55 +281,67 @@
         <p>Il software gestionale offline, veloce e sicuro, progettato su misura per la tua autofficina. Ora disponibile per Desktop e Tablet.</p>
 
         <p style="display: inline-block; text-align: left; font-size: 1.1rem; color: #ecf0f1; margin-bottom: 30px; line-height: 1.8;">
-            ✅ <strong>Nessun abbonamento mensile:</strong> paghi una volta, lo usi per sempre.<br>
-            ✅ <strong>Offline e Sicuro:</strong> i dati e le fatture restano privati sul tuo dispositivo.<br>
-            ✅ <strong>Provalo GRATIS per 30 giorni:</strong> nessuna carta di credito richiesta.
+            ✅ <strong>Inizia Gratis:</strong> usalo subito, senza limiti di tempo.<br>
+            ✅ <strong>Offline e Sicuro:</strong> i dati restano privati sul tuo dispositivo.<br>
+            ✅ <strong>Nessun abbonamento mensile:</strong> se passi a Premium, paghi una volta sola.
         </p>
         
         <div class="cta-container">
-            <!-- Sostituisci il link '#link-playstore' con il tuo vero link di Google Play o di testing -->
+            <!-- Link aggiornati alla versione v1.3.0 -->
+            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.3.0/AutoWorkShop_windows.zip" class="btn btn-download">🪟 Scarica per Windows</a>
+                      
+            <!-- Link Google Play invariato -->
             <a href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" class="btn btn-android">
-                📱 Scarica per Android</a>
+                📱 Scarica per Tablet<br>
+                <span style="font-size: 0.85rem; font-weight: normal;">(Disponibile su Google Play)</span>
+            </a>
             
-            <!-- I link sono stati aggiornati alla versione v1.2.0 -->
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.2.0/AutoWorkShop_windows.zip" class="btn btn-download">
-                🪟 Scarica per Windows</a>
+            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.3.0/AutoWorkShop_linux.zip" class="btn btn-download">🐧 Scarica per Linux</a>
             
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.2.0/AutoWorkShop_linux.zip" class="btn btn-download">
-                🐧 Scarica per Linux</a>  
         </div>
-    </header>
 
-    <div class="container">
-        
-        <!-- NUOVA SEZIONE CHANGELOG v1.2.0 -->
-        <div class="card card-full">
-            <h2>🚀 Aggiornamento v1.2.0 <span class="badge-new">NUOVO</span></h2>
-            <p style="color: #666; font-size: 0.9em;"><em>Ultimo rilascio: 3 Agosto 2026</em></p>
-            <p>Consigliamo a tutti gli utenti di aggiornare a questa versione per garantire la massima sicurezza dei dati dell'officina. Questo aggiornamento segna anche il debutto ufficiale della versione mobile su Android.</p>
+    </header>
+    
+    	<!-- NUOVA SEZIONE IMMAGINE DASHBOARD -->
+	    <div class="dashboard-preview-container">
+		<!-- Se hai convertito l'immagine in webp, cambia l'estensione qui sotto -->
+		<img src="dashboard.png" alt="Anteprima Dashboard Auto Workshop Pro" class="dashboard-preview">
+	    </div>
+
+	    <div class="container">
+		
+		<!-- NUOVA SEZIONE CHANGELOG v1.3.0 -->
+		<div class="card card-full">
+		    <h2>🚀 Aggiornamento v1.3.0 <span class="badge-new">NUOVO</span></h2>
+		    <p>Abbiamo rivoluzionato Auto Workshop Pro! Ascoltando i feedback delle officine, abbiamo migliorato l'interfaccia rendendola <em>Completamente Responsiva</em> su Tablet e Desktop, e abbiamo introdotto nuove funzioni essenziali.</p>
+            
             
             <h3>🌟 Nuove Funzionalità</h3>
             <ul class="changelog-list">
-                <li><strong>Lancio Ufficiale su Tablet Android:</strong> Porta il gestionale direttamente tra i ponti dell'officina! Ottimizzato esclusivamente per schermi ampi (dai 7 pollici in su), offre la stessa potenza e sicurezza della versione PC.</li>
-                <li><strong>Gestione Permessi e Ruoli (RBAC):</strong> Introdotto un sistema di sicurezza gerarchico.
-                    <ul class="sub-list">
-                        <li>👑 <strong>Amministratore:</strong> Accesso totale. Autorizzato a eliminare fatture, clienti e buste paga.</li>
-                        <li>👩‍💼 <strong>Segreteria:</strong> Accesso a contabilità e gestione lavori, con blocco sull'eliminazione dei documenti storici.</li>
-                        <li>🔧 <strong>Meccanico:</strong> Interfaccia focalizzata esclusivamente sull'operatività di officina (Bozze, Lavori, Catalogo).</li>
-                    </ul>
-                </li>
-                <li><strong>Modifica Fatture Completate e Gestione Resi:</strong> Ora è possibile riaprire e modificare un lavoro anche dopo la consegna e il pagamento. Il sistema permette di registrare comodamente un <strong>Incasso extra</strong> o un <strong>Reso/Rimborso</strong>.</li>
+                <li><strong>Modello Freemium a Vita:</strong> Addio scadenza a 30 giorni! Ora l'app è <strong>gratuita per sempre</strong> (fino a 15 preventivi al mese). Passa a Premium (pagamento unico a vita) solo quando vuoi eliminare i limiti!</li>
+                <li><strong>Nuovo Calendario Appuntamenti:</strong> Prenota i clienti, segna i promemoria per le revisioni e tieni in ordine la tua officina direttamente dal nuovo modulo Calendario integrato.</li>
+                <li><strong>Backup Automatico (Esclusiva Premium):</strong> Per dormire sonni tranquilli, la versione Premium ora salva un backup sul tuo <strong>Google Drive ogni 8 ore</strong> in automatico, mantenendo sempre lo storico degli ultimi 5 salvataggi. Ripristino istantaneo in caso di guasto hardware.</li>
+                <li><strong>Notifiche in Dashboard:</strong> Un nuovo sistema di messaggistica integrata ti avviserà di eventi importanti in officina e ti segnalerà l'uscita di nuovi aggiornamenti software.</li>
             </ul>
 
-            <h3>📈 Miglioramenti</h3>
+            <h3>📈 Miglioramenti UI/UX</h3>
             <ul class="changelog-list">
-                <li><strong>Stato Finanziario Dinamico:</strong> Le card dello storico auto ora mostrano in modo chiaro e immediato lo stato del bilancio con etichette dedicate (✓ SALDATO, ⚠ DEBITORE o ⚠ CREDITORE).</li>
-                <li><strong>UI/UX Dashboard:</strong> Ridisegnato il menu laterale per adattarsi dinamicamente ai vari schermi, risolvendo i problemi di overflow visivo.</li>
+                <li><strong>Layout Responsivo Perfetto:</strong> Tutti i popup, i form e le finestre di inserimento dati (fatture, clienti, kit) si adattano dinamicamente: colonna singola in verticale, due o tre colonne affiancate in orizzontale. Meno scroll, più efficienza!</li>
+                <li><strong>Toggle IVA intelligente:</strong> In fase di consegna auto, un pratico interruttore permette di includere o scorporare l'IVA istantaneamente in base alle tue preferenze salvate.</li>
             </ul>
-
         </div>
         <!-- FINE SEZIONE CHANGELOG -->
         
+        <!-- SEZIONE CHANGELOG v1.2.0 (DECLASSATA MA VISIBILE) -->
+        <div class="card card-full" style="opacity: 0.8; border-top: 4px solid var(--accent);">
+            <h2>Storico v1.2.0</h2>
+            <ul class="changelog-list">
+                <li><strong>Gestione Permessi (RBAC):</strong> Ruoli separati per Amministratore (totale), Segreteria (limitato) e Meccanico (solo operatività).</li>
+                <li><strong>Modifica Fatture Storiche:</strong> Possibilità di riaprire vecchie fatture per registrare incassi extra o resi/rimborsi.</li>
+                <li><strong>Stato Finanziario:</strong> Etichette visive immediate sullo stato (Saldato, Debitore, Creditore).</li>
+            </ul>
+        </div>
+
         <div class="card">
             <h2>Supporto Tecnico</h2>
             <p>Hai bisogno di aiuto con l'installazione, hai perso la tua chiave di licenza o vuoi segnalare un problema?</p>
@@ -317,7 +351,7 @@
 
         <div class="card">
             <h2>Documenti Legali</h2>
-            <p>La tua privacy è la nostra priorità. Auto Workshop Pro salva i dati localmente sul tuo dispositivo.</p>
+            <p>La tua privacy è la nostra priorità. Auto Workshop Pro salva i dati localmente sul tuo dispositivo[cite: 1, 2].</p>
             <ul>
                 <li><a href="privacy.html">📄 Informativa sulla Privacy</a></li>
                 <li><a href="terms.html">⚖️ Termini di Servizio</a></li>
@@ -333,3 +367,4 @@
 
 </body>
 </html>
+    
