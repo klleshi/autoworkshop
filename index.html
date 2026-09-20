@@ -1,370 +1,524 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQLVQRZKXP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-JQLVQRZKXP');
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQLVQRZKXP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JQLVQRZKXP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Auto Workshop Pro - Il gestionale offline definitivo per la tua autofficina, ora su PC e Tablet.">
 
-     <!-- Google Serch console -->
-    <link rel="canonical" href="https://autoworkshop.klleshi.com/" />
-    
-    <title>Auto Workshop Pro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Auto Workshop Pro - Il gestionale offline definitivo per la tua autofficina, ora su PC e Tablet.">
+<link rel="canonical" href="https://autoworkshop.klleshi.com/" />
+<title>Auto Workshop Pro</title>
 
-    <style>
-        /* --- VARIABILI COLORE --- */
-        :root {
-            --primary: #2c3e50; /* Blu scuro professionale */
-            --accent: #3498db;  /* Azzurro per link e bottoni secondari */
-            --success: #27ae60; /* Verde per il bottone di acquisto */
-            --android: #3DDC84; /* Verde ufficiale Android */
-            --bg-light: #f8f9fa;
-            --text-main: #333333;
-            --text-muted: #6c757d;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+<style>
+  :root{
+    --bg: #10203A;
+    --panel: #16294A;
+    --panel-line: #2C4468;
+    --ink: #F1EEE4;
+    --ink-dim: #C7D0DE;
+    --line: #5D7FA3;
+    --accent: #E2622C;
+    --accent-dim: #B84E23;
+    --good: #4E9B6E;
+    --frame-margin: clamp(14px, 3vw, 34px);
+  }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
 
-        /* --- HEADER / HERO SECTION --- */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #bdc3c7;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
+  h1, h2, h3{
+    font-family: "Big Shoulders Display", "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0;
+  }
 
-        /* --- CALL TO ACTION (BOTTONI) --- */
-        .cta-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+  a{ color: inherit; }
+  .mono{ font-family: "IBM Plex Mono", monospace; letter-spacing: 0.01em; }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+  /* ---------- drafting-sheet frame ---------- */
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
+  .sheet{
+    position: relative;
+    margin: var(--frame-margin);
+    border: 1px solid var(--line);
+  }
 
-        .btn-download {
-            background-color: white;
-            color: var(--primary);
-            border: 2px solid white;
-        }
+  .tick{ position: absolute; width: 16px; height: 16px; pointer-events: none; }
+  .tick::before, .tick::after{ content: ""; position: absolute; background: var(--line); }
+  .tick::before{ width: 100%; height: 1px; top: 50%; left: 0; }
+  .tick::after{ width: 1px; height: 100%; left: 50%; top: 0; }
+  .tick.tl{ top: -8px; left: -8px; }
+  .tick.tr{ top: -8px; right: -8px; }
+  .tick.bl{ bottom: -8px; left: -8px; }
+  .tick.br{ bottom: -8px; right: -8px; }
 
-        .btn-download:hover {
-            background-color: #f1f1f1;
-        }
+  /* ---------- top bar ---------- */
 
-        .btn-buy {
-            background-color: var(--success);
-            color: white;
-            border: 2px solid var(--success);
-        }
+  .topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px clamp(20px, 4vw, 48px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .wordmark{
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    text-decoration: none;
+  }
+  .topnav{ display: flex; gap: clamp(14px, 3vw, 30px); }
+  .topnav a{
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--ink-dim);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .topnav a:hover, .topnav a:focus-visible{ color: var(--ink); border-color: var(--accent); }
 
-        .btn-buy:hover {
-            background-color: #219653;
-            border-color: #219653;
-        }
+  /* ---------- hero ---------- */
 
-        .btn-android {
-            background-color: white;
-            color: var(--android);
-            border: 2px solid var(--android);
-            padding: 10px 20px;
-            line-height: 1.3;
-        }
+  .hero{
+    padding: clamp(40px, 7vw, 84px) clamp(20px, 4vw, 48px) clamp(24px, 5vw, 48px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .hero-tag{ font-size: 13px; color: var(--line); margin-bottom: 16px; }
+  .hero h1{
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    max-width: 20ch;
+  }
+  .hero-sub{
+    margin-top: 20px;
+    max-width: 58ch;
+    color: var(--ink-dim);
+    font-size: 17px;
+  }
 
-        .btn-android:hover {
-            background-color: #f0fdf4;
-        }
+  .value-list{
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 24px;
+    max-width: 900px;
+  }
+  .value-list li{
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    color: var(--ink-dim);
+  }
+  .value-list li::before{
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: 7px;
+    background: var(--accent);
+    flex: none;
+  }
+  .value-list strong{ color: var(--ink); display: block; font-weight: 600; }
 
-        /* --- CONTENUTO PRINCIPALE --- */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+  .cta-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .btn{
+    display: inline-block;
+    font-size: 14px;
+    padding: 13px 22px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    background: transparent;
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .btn:hover, .btn:focus-visible{ border-color: var(--accent); color: var(--accent); }
+  .btn-primary{
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .btn-primary:hover, .btn-primary:focus-visible{
+    background: var(--accent-dim);
+    border-color: var(--accent-dim);
+    color: var(--bg);
+  }
+  .btn small{ display: block; font-weight: 400; font-size: 11.5px; opacity: .8; margin-top: 2px; }
 
-        .card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent);
-        }
-        
-        /* Classe per la card degli aggiornamenti che prende tutta la larghezza */
-        .card-full {
-            grid-column: 1 / -1; 
-            border-top: 4px solid var(--success);
-        }
+  /* ---------- screenshot panel ---------- */
 
-        .card h2 {
-            color: var(--primary);
-            border-bottom: 2px solid #eaecef;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
+  .screenshot-wrap{
+    padding: 0 clamp(20px, 4vw, 48px) clamp(48px, 8vw, 84px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .screenshot-frame{
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+    padding: 10px;
+    background: #0C1930;
+  }
+  .screenshot-frame .tick{ width: 12px; height: 12px; }
+  .screenshot-frame .tick::before, .screenshot-frame .tick::after{ background: var(--accent); }
+  .screenshot-frame .tick.tl{ top: -6px; left: -6px; }
+  .screenshot-frame .tick.tr{ top: -6px; right: -6px; }
+  .screenshot-frame .tick.bl{ bottom: -6px; left: -6px; }
+  .screenshot-frame .tick.br{ bottom: -6px; right: -6px; }
+  .screenshot-frame img{ display: block; width: 100%; height: auto; }
+  .screenshot-caption{
+    margin-top: 14px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--line);
+  }
 
-        .card h3 {
-            color: var(--primary);
-            margin: 20px 0 10px 0;
-            font-size: 1.2rem;
-        }
+  /* ---------- section shell ---------- */
 
-        .card ul {
-            list-style-type: none;
-        }
+  section{ padding: clamp(40px, 7vw, 80px) clamp(20px, 4vw, 48px); border-bottom: 1px solid var(--panel-line); }
+  section:last-of-type{ border-bottom: none; }
 
-        .card li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f1f1;
-        }
+  .section-head{
+    margin-bottom: clamp(28px, 5vw, 44px);
+    border-bottom: 1px solid var(--panel-line);
+    padding-bottom: 18px;
+  }
+  .section-head h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p{ color: var(--ink-dim); margin-top: 10px; max-width: 60ch; font-size: 15px; }
 
-        .card li:last-child {
-            border-bottom: none;
-        }
+  /* ---------- pricing spec sheet ---------- */
 
-        /* Stili specifici per le liste del changelog per renderle più compatte */
-        .changelog-list {
-            margin-left: 15px;
-        }
-        
-        .changelog-list li {
-            padding: 6px 0;
-            border-bottom: none;
-            position: relative;
-            padding-left: 20px;
-        }
+  .pricing{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .plan{
+    border: 1px solid var(--panel-line);
+    background: var(--panel);
+  }
+  .plan-head{
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--panel-line);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .plan-head h3{ font-size: 1.4rem; }
+  .plan.premium .plan-head{ border-bottom-color: var(--accent-dim); }
+  .plan-price{ font-size: 1.1rem; font-weight: 600; }
+  .plan.premium .plan-price{ color: var(--accent); }
+  .plan dl{
+    padding: 18px 24px 22px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px 14px;
+    font-size: 14px;
+  }
+  .plan dt{ color: var(--ink-dim); }
+  .plan dd{ margin: 0; text-align: right; font-weight: 500; }
+  .plan dd.yes{ color: var(--good); }
+  .plan dd.no{ color: var(--line); }
+  .plan-cta{ padding: 0 24px 22px; }
+  .plan-cta .btn{ width: 100%; text-align: center; }
 
-        .changelog-list li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            position: absolute;
-            left: 0;
-        }
+  /* ---------- changelog ---------- */
 
-        .sub-list {
-            margin-left: 20px;
-            margin-top: 5px;
-        }
+  .changelog{ display: flex; flex-direction: column; gap: 20px; }
+  .release{ border: 1px solid var(--panel-line); background: var(--panel); }
+  .release-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .release-head h3{ font-size: 1.2rem; }
+  .release-status{ font-size: 12px; color: var(--accent); }
+  .release-status.muted{ color: var(--line); }
+  .release-body{ padding: 20px 22px 24px; }
+  .release-body p{ color: var(--ink-dim); font-size: 14.5px; max-width: 68ch; }
+  .release-group h4{
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin: 18px 0 10px;
+  }
+  .release-group:first-of-type h4{ margin-top: 16px; }
+  .changelog-list{ list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .changelog-list li{
+    font-size: 14px;
+    color: var(--ink-dim);
+    padding-left: 16px;
+    position: relative;
+  }
+  .changelog-list li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--line);
+  }
+  .changelog-list strong{ color: var(--ink); font-weight: 600; }
+  .release.legacy{ opacity: .82; }
 
-        .sub-list li {
-            padding: 4px 0;
-        }
+  /* ---------- support / title block ---------- */
 
-        .sub-list li::before {
-            content: "-";
-            color: #7f8c8d;
-        }
+  .titleblock{
+    padding: clamp(30px, 6vw, 50px) clamp(20px, 4vw, 48px) clamp(40px, 6vw, 56px);
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 30px;
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .titleblock h2{ font-size: clamp(1.5rem, 3vw, 2rem); }
+  .titleblock p{ color: var(--ink-dim); max-width: 46ch; margin-top: 14px; }
+  .support-email{
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 
-        .badge-new {
-            background-color: var(--success);
-            color: white;
-            font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 12px;
-            vertical-align: middle;
-            margin-left: 10px;
-            font-weight: normal;
-        }
+  .tb-meta{
+    border-left: 1px solid var(--panel-line);
+    padding-left: 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 18px;
+    align-self: start;
+    font-size: 13.5px;
+  }
+  .tb-meta dt{ color: var(--line); }
+  .tb-meta dd{ margin: 0; }
+  .tb-meta a{ text-decoration: underline; text-decoration-color: var(--panel-line); text-underline-offset: 3px; }
+  .tb-meta a:hover, .tb-meta a:focus-visible{ text-decoration-color: var(--accent); color: var(--accent); }
 
-        .card a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
+  footer{
+    padding: 22px clamp(20px, 4vw, 48px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--line);
+  }
+  footer a{ text-decoration: underline; text-decoration-color: var(--panel-line); text-underline-offset: 3px; }
+  footer a:hover, footer a:focus-visible{ text-decoration-color: var(--accent); color: var(--accent); }
 
-        .card a:hover {
-            text-decoration: underline;
-            color: #2980b9;
-        }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
 
-        .contact-email {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-top: 10px;
-            display: inline-block;
-        }
+  /* ---------- responsive ---------- */
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.9em;
-            color: var(--text-muted);
-            border-top: 1px solid #eaecef;
-        }
-        
-        /* --- ANTEPRIMA DASHBOARD --- */
-        .dashboard-preview-container {
-            text-align: center;
-            max-width: 800px; /* Dimensione corretta, 300px era troppo piccolo */
-            margin: 20px auto -25px auto; /* Tolto il -30px! Ora starà esattamente sotto la fascia blu */
-            padding: 0 10px;
-            position: relative;
-        }
-
-        .dashboard-preview {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            border: 4px solid white; /* Cornice bianca per farla risaltare */
-            background-color: var(--bg-light);
-        }
-        
-    </style>
+  @media (max-width: 760px){
+    .value-list{ grid-template-columns: 1fr 1fr; }
+    .pricing{ grid-template-columns: 1fr; }
+    .titleblock{ grid-template-columns: 1fr; }
+    .tb-meta{ border-left: none; padding-left: 0; border-top: 1px solid var(--panel-line); padding-top: 20px; }
+  }
+  @media (max-width: 560px){
+    .topnav{ display: none; }
+    .value-list{ grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>🛠️ Auto Workshop Pro</h1>
-        <p>Il software gestionale offline, veloce e sicuro, progettato su misura per la tua autofficina. Ora disponibile per Desktop e Tablet.</p>
+<div class="sheet">
+  <span class="tick tl"></span><span class="tick tr"></span>
+  <span class="tick bl"></span><span class="tick br"></span>
 
-        <p style="display: inline-block; text-align: left; font-size: 1.1rem; color: #ecf0f1; margin-bottom: 30px; line-height: 1.8;">
-            ✅ <strong>Inizia Gratis:</strong> usalo subito, senza limiti di tempo.<br>
-            ✅ <strong>Offline e Sicuro:</strong> i dati restano privati sul tuo dispositivo.<br>
-            ✅ <strong>Nessun abbonamento mensile:</strong> se passi a Premium, paghi una volta sola.
-        </p>
-        
-        <div class="cta-container">
-            <!-- Link aggiornati alla versione v1.3.0 -->
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.3.0/AutoWorkShop_windows.zip" class="btn btn-download">🪟 Scarica per Windows</a>
-                      
-            <!-- Link Google Play invariato -->
-            <a href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" class="btn btn-android">
-                📱 Scarica per Tablet<br>
-                <span style="font-size: 0.85rem; font-weight: normal;">(Disponibile su Google Play)</span>
-            </a>
-            
-            <a href="https://github.com/klleshi/auto-workshop-releases/releases/download/v1.3.0/AutoWorkShop_linux.zip" class="btn btn-download">🐧 Scarica per Linux</a>
-            
-        </div>
+  <header class="topbar">
+    <a class="wordmark" href="#top">Auto Workshop Pro</a>
+    <nav class="topnav">
+      <a href="#funzionalita">Novità</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="#supporto">Supporto</a>
+    </nav>
+  </header>
 
-    </header>
-    
-    	<!-- NUOVA SEZIONE IMMAGINE DASHBOARD -->
-	    <div class="dashboard-preview-container">
-		<!-- Se hai convertito l'immagine in webp, cambia l'estensione qui sotto -->
-		<img src="dashboard.png" alt="Anteprima Dashboard Auto Workshop Pro" class="dashboard-preview">
-	    </div>
+  <section class="hero" id="top">
+    <p class="hero-tag mono">Gestionale per autofficine — desktop e tablet</p>
+    <h1>Il gestionale offline per la tua autofficina.</h1>
+    <p class="hero-sub">Preventivi, clienti, fatture e calendario in un'unica app che funziona anche senza connessione. I tuoi dati restano sul tuo dispositivo, non su un server di terzi.</p>
 
-	    <div class="container">
-		
-		<!-- NUOVA SEZIONE CHANGELOG v1.3.0 -->
-		<div class="card card-full">
-		    <h2>🚀 Aggiornamento v1.3.0 <span class="badge-new">NUOVO</span></h2>
-		    <p>Abbiamo rivoluzionato Auto Workshop Pro! Ascoltando i feedback delle officine, abbiamo migliorato l'interfaccia rendendola <em>Completamente Responsiva</em> su Tablet e Desktop, e abbiamo introdotto nuove funzioni essenziali.</p>
-            
-            
-            <h3>🌟 Nuove Funzionalità</h3>
-            <ul class="changelog-list">
-                <li><strong>Modello Freemium a Vita:</strong> Addio scadenza a 30 giorni! Ora l'app è <strong>gratuita per sempre</strong> (fino a 15 preventivi al mese). Passa a Premium (pagamento unico a vita) solo quando vuoi eliminare i limiti!</li>
-                <li><strong>Nuovo Calendario Appuntamenti:</strong> Prenota i clienti, segna i promemoria per le revisioni e tieni in ordine la tua officina direttamente dal nuovo modulo Calendario integrato.</li>
-                <li><strong>Backup Automatico (Esclusiva Premium):</strong> Per dormire sonni tranquilli, la versione Premium ora salva un backup sul tuo <strong>Google Drive ogni 8 ore</strong> in automatico, mantenendo sempre lo storico degli ultimi 5 salvataggi. Ripristino istantaneo in caso di guasto hardware.</li>
-                <li><strong>Notifiche in Dashboard:</strong> Un nuovo sistema di messaggistica integrata ti avviserà di eventi importanti in officina e ti segnalerà l'uscita di nuovi aggiornamenti software.</li>
-            </ul>
+    <ul class="value-list">
+      <li><span><strong>Gratis per sempre</strong>fino a 15 preventivi al mese, nessuna scadenza.</span></li>
+      <li><span><strong>Offline e privato</strong>i dati restano sul dispositivo, non nel cloud.</span></li>
+      <li><span><strong>Nessun abbonamento</strong>Premium si paga una volta sola, a vita.</span></li>
+    </ul>
 
-            <h3>📈 Miglioramenti UI/UX</h3>
-            <ul class="changelog-list">
-                <li><strong>Layout Responsivo Perfetto:</strong> Tutti i popup, i form e le finestre di inserimento dati (fatture, clienti, kit) si adattano dinamicamente: colonna singola in verticale, due o tre colonne affiancate in orizzontale. Meno scroll, più efficienza!</li>
-                <li><strong>Toggle IVA intelligente:</strong> In fase di consegna auto, un pratico interruttore permette di includere o scorporare l'IVA istantaneamente in base alle tue preferenze salvate.</li>
-            </ul>
-        </div>
-        <!-- FINE SEZIONE CHANGELOG -->
-        
-        <!-- SEZIONE CHANGELOG v1.2.0 (DECLASSATA MA VISIBILE) -->
-        <div class="card card-full" style="opacity: 0.8; border-top: 4px solid var(--accent);">
-            <h2>Storico v1.2.0</h2>
-            <ul class="changelog-list">
-                <li><strong>Gestione Permessi (RBAC):</strong> Ruoli separati per Amministratore (totale), Segreteria (limitato) e Meccanico (solo operatività).</li>
-                <li><strong>Modifica Fatture Storiche:</strong> Possibilità di riaprire vecchie fatture per registrare incassi extra o resi/rimborsi.</li>
-                <li><strong>Stato Finanziario:</strong> Etichette visive immediate sullo stato (Saldato, Debitore, Creditore).</li>
-            </ul>
-        </div>
+    <div class="cta-group">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" onclick="gtag('event','download_click',{platform:'tablet',version:'1.3.0',source:'hero'});">Scarica per tablet<small>Google Play, 7" o superiore</small></a>
+      <a class="btn" href="/downloads/AutoWorkShop_windows.zip" onclick="gtag('event','download_click',{platform:'windows',version:'1.3.0',source:'hero'});">Scarica per Windows<small>v1.3.0</small></a>
+      <a class="btn" href="/downloads/AutoWorkShop_linux.zip" onclick="gtag('event','download_click',{platform:'linux',version:'1.3.0',source:'hero'});">Scarica per Linux<small>v1.3.0</small></a>
+    </div>
+  </section>
 
-        <div class="card">
-            <h2>Supporto Tecnico</h2>
-            <p>Hai bisogno di aiuto con l'installazione, hai perso la tua chiave di licenza o vuoi segnalare un problema?</p>
-            <p>Il nostro team di supporto è a tua disposizione. Scrivici una mail a:</p>
-            <a href="mailto:klleshi99@gmail.com" class="contact-email">✉️ klleshi99@gmail.com</a>
-        </div>
+  <div class="screenshot-wrap">
+    <div class="screenshot-frame">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <picture>
+        <source srcset="dashboard.webp" type="image/webp">
+        <img src="dashboard.png" alt="Dashboard di Auto Workshop Pro">
+      </picture>
+    </div>
+    <p class="screenshot-caption mono">Dashboard — versione tablet, v1.3.0</p>
+  </div>
 
-        <div class="card">
-            <h2>Documenti Legali</h2>
-            <p>La tua privacy è la nostra priorità. Auto Workshop Pro salva i dati localmente sul tuo dispositivo</p>
-            <ul>
-                <li><a href="privacy.html">📄 Informativa sulla Privacy</a></li>
-                <li><a href="terms.html">⚖️ Termini di Servizio</a></li>
-                <li><a href="faq.html">❓ Domande Frequenti (FAQ)</a></li>
-            </ul>
-        </div>
-
+  <section id="funzionalita">
+    <div class="section-head">
+      <h2>Novità della versione 1.3.0</h2>
+      <p>Aggiornamento basato sul feedback diretto delle officine che usano l'app ogni giorno.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Auto Workshop Pro. Sviluppato da klleshi.</p>
-    </footer>
+    <div class="changelog">
+      <article class="release">
+        <div class="release-head">
+          <h3>v1.3.0</h3>
+          <span class="release-status">Ultimo aggiornamento</span>
+        </div>
+        <div class="release-body">
+          <div class="release-group">
+            <h4>Nuove funzionalità</h4>
+            <ul class="changelog-list">
+              <li><strong>Modello gratuito a vita.</strong> Niente più scadenza a 30 giorni: la versione base è gratuita per sempre, fino a 15 preventivi al mese. Premium rimuove il limite con un pagamento unico.</li>
+              <li><strong>Calendario appuntamenti.</strong> Prenotazioni clienti e promemoria revisioni integrati direttamente nell'app.</li>
+              <li><strong>Backup automatico su Google Drive (Premium).</strong> Salvataggio ogni 8 ore, storico degli ultimi 5 backup, ripristino rapido in caso di guasto al dispositivo.</li>
+              <li><strong>Notifiche in dashboard.</strong> Avvisi su eventi importanti in officina e su nuovi aggiornamenti disponibili.</li>
+            </ul>
+          </div>
+          <div class="release-group">
+            <h4>Interfaccia</h4>
+            <ul class="changelog-list">
+              <li><strong>Layout responsivo.</strong> Form e finestre di inserimento dati si adattano dinamicamente: colonna singola in verticale, più colonne in orizzontale.</li>
+              <li><strong>Toggle IVA.</strong> In fase di consegna auto, un interruttore permette di includere o scorporare l'IVA in base alle preferenze salvate.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="release legacy">
+        <div class="release-head">
+          <h3>v1.2.0</h3>
+          <span class="release-status muted">Versione precedente</span>
+        </div>
+        <div class="release-body">
+          <ul class="changelog-list">
+            <li><strong>Gestione permessi per ruolo.</strong> Accessi separati per Amministratore, Segreteria e Meccanico.</li>
+            <li><strong>Modifica fatture storiche.</strong> Possibilità di riaprire vecchie fatture per incassi extra, resi o rimborsi.</li>
+            <li><strong>Stato finanziario a colpo d'occhio.</strong> Etichette visive per saldato, debitore, creditore.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="prezzi">
+    <div class="section-head">
+      <h2>Prezzi</h2>
+      <p>Nessun canone mensile: la versione Premium si paga una volta sola.</p>
+    </div>
+
+    <div class="pricing">
+      <div class="plan">
+        <div class="plan-head">
+          <h3>Base</h3>
+          <span class="plan-price">Gratis</span>
+        </div>
+        <dl>
+          <dt>Preventivi al mese</dt><dd>Fino a 15</dd>
+          <dt>Durata</dt><dd class="yes">Per sempre</dd>
+          <dt>Backup automatico su Drive</dt><dd class="no">—</dd>
+          <dt>Aggiornamenti</dt><dd class="yes">Inclusi</dd>
+        </dl>
+        <div class="plan-cta">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" onclick="gtag('event','download_click',{platform:'tablet',version:'1.3.0',source:'pricing_free'});">Inizia gratis</a>
+        </div>
+      </div>
+
+      <div class="plan premium">
+        <div class="plan-head">
+          <h3>Premium</h3>
+          <span class="plan-price">249 € una tantum</span>
+        </div>
+        <dl>
+          <dt>Preventivi al mese</dt><dd class="yes">Illimitati</dd>
+          <dt>Durata</dt><dd class="yes">A vita</dd>
+          <dt>Backup automatico su Drive</dt><dd class="yes">Ogni 8 ore</dd>
+          <dt>Aggiornamenti</dt><dd class="yes">Inclusi</dd>
+        </dl>
+        <div class="plan-cta">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" onclick="gtag('event','download_click',{platform:'tablet',version:'1.3.0',source:'pricing_premium'});">Passa a Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="titleblock" id="supporto">
+    <div>
+      <h2>Supporto</h2>
+      <p>Problemi con l'installazione, licenza smarrita o una segnalazione da fare? Scrivimi direttamente: rispondo personalmente a ogni messaggio.</p>
+      <a class="support-email mono" href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a>
+    </div>
+    <dl class="tb-meta">
+      <dt>Privacy</dt>
+      <dd><a href="privacy.html">Informativa sulla privacy</a></dd>
+      <dt>Termini</dt>
+      <dd><a href="terms.html">Termini di servizio</a></dd>
+      <dt>FAQ</dt>
+      <dd><a href="faq.html">Domande frequenti</a></dd>
+    </dl>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Auto Workshop Pro</span>
+    <span>Un progetto di <a href="https://klleshi.com/">Kastriot Lleshi</a></span>
+  </footer>
+</div>
 
 </body>
 </html>
-    
