@@ -1,122 +1,225 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domande Frequenti | Auto Workshop Pro</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #3498db; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eaecef; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
-        .faq-item { margin-bottom: 15px; border: 1px solid #eaecef; border-radius: 8px; overflow: hidden; background-color: #fff; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domande Frequenti | Auto Workshop Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10203A;
+    --panel: #16294A;
+    --panel-line: #2C4468;
+    --ink: #F1EEE4;
+    --ink-dim: #C7D0DE;
+    --line: #5D7FA3;
+    --accent: #E2622C;
+    --accent-dim: #B84E23;
+    --good: #4E9B6E;
+    --frame-margin: clamp(14px, 3vw, 34px);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; }
+  .mono{ font-family: "IBM Plex Mono", monospace; letter-spacing: 0.01em; }
 
-        .faq-question { background-color: #fdfdfd; padding: 18px 20px; cursor: pointer; font-weight: bold; color: #2c3e50; display: flex; align-items: center; user-select: none; }
-        
-        .faq-question:hover { background-color: #f5f7fa; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; background-color: #fafbfc; color: #555; border-top: 0 solid #eaecef; }
-        .faq-item.active .faq-answer { padding: 20px; max-height: 800px; border-top: 1px solid #eaecef; } /* Aumentato max-height per risposte lunghe */
-        
-        .faq-question::after { content: '➔'; display: inline-block; transform: rotate(90deg); transition: transform 0.3s ease; color: #95a5a6; font-size: 0.9rem; margin-left: auto; }
-        
-        .faq-item.active .faq-question::after { transform: rotate(-90deg); color: #3498db; }
-        .badge-new { background-color: #2ecc71; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 10px; vertical-align: middle; }
-        .cta-section { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eaecef; }
-        .btn-download { display: inline-block; background-color: #3498db; color: white; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background-color 0.2s; margin-top: 15px; }
-        .btn-download:hover { background-color: #2980b9; }
-        a.back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
-        a.back-link:hover { text-decoration: underline; }
-    </style>
+  .sheet{ position: relative; margin: var(--frame-margin); border: 1px solid var(--line); }
+  .tick{ position: absolute; width: 16px; height: 16px; pointer-events: none; }
+  .tick::before, .tick::after{ content: ""; position: absolute; background: var(--line); }
+  .tick::before{ width: 100%; height: 1px; top: 50%; left: 0; }
+  .tick::after{ width: 1px; height: 100%; left: 50%; top: 0; }
+  .tick.tl{ top: -8px; left: -8px; } .tick.tr{ top: -8px; right: -8px; }
+  .tick.bl{ bottom: -8px; left: -8px; } .tick.br{ bottom: -8px; right: -8px; }
+
+  .topbar{
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 22px clamp(20px, 4vw, 48px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .wordmark{ font-family: "Big Shoulders Display", sans-serif; font-weight: 700; font-size: 21px; text-decoration: none; }
+  .topnav{ display: flex; align-items: center; gap: clamp(14px, 3vw, 30px); }
+  .topnav a{
+    font-size: 14px; text-decoration: none; color: var(--ink-dim);
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .topnav a:hover, .topnav a:focus-visible{ color: var(--ink); border-color: var(--accent); }
+  .topnav a.lang{ font-family: "IBM Plex Mono", monospace; font-size: 12.5px; border: 1px solid var(--panel-line); padding: 3px 8px; }
+  .topnav a.lang:hover, .topnav a.lang:focus-visible{ border-color: var(--accent); }
+
+  .btn{
+    display: inline-block; font-size: 14px; padding: 13px 22px; border: 1px solid var(--line);
+    text-decoration: none; color: var(--ink); background: transparent;
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .btn:hover, .btn:focus-visible{ border-color: var(--accent); color: var(--accent); }
+  .btn-primary{ border-color: var(--accent); background: var(--accent); color: var(--bg); font-weight: 600; }
+  .btn-primary:hover, .btn-primary:focus-visible{ background: var(--accent-dim); border-color: var(--accent-dim); color: var(--bg); }
+
+  footer{
+    padding: 22px clamp(20px, 4vw, 48px);
+    border-top: 1px solid var(--panel-line);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+    font-size: 13px; color: var(--line);
+  }
+  footer nav{ display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  footer a{ text-decoration: underline; text-decoration-color: var(--panel-line); text-underline-offset: 3px; }
+  footer a:hover, footer a:focus-visible{ text-decoration-color: var(--accent); color: var(--accent); }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- documento ---------- */
+  .doc{ padding: clamp(36px, 6vw, 72px) clamp(20px, 4vw, 48px) clamp(48px, 7vw, 80px); }
+  .doc-inner{ max-width: 72ch; }
+  .doc h1, .doc h2, .doc h3{ font-family: "Big Shoulders Display", "IBM Plex Sans", sans-serif; font-weight: 700; line-height: 1.1; }
+  .doc h1{ font-size: clamp(2rem, 4vw, 2.9rem); margin: 0 0 14px; }
+  .doc h2, .doc h3{ font-size: clamp(1.3rem, 2.4vw, 1.6rem); margin: 38px 0 12px; padding-top: 18px; border-top: 1px solid var(--panel-line); }
+  .doc p, .doc li{ color: var(--ink-dim); font-size: 15.5px; }
+  .doc p{ margin: 0 0 14px; }
+  .doc ul, .doc ol{ margin: 0 0 16px; padding-left: 22px; }
+  .doc li{ margin-bottom: 8px; }
+  .doc li > ul{ margin-top: 8px; }
+  .doc strong{ color: var(--ink); font-weight: 600; }
+  .doc em{ font-style: normal; }
+  .doc code{ font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: var(--ink); background: var(--panel); padding: 1px 6px; }
+  .doc a:not(.btn){ color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .doc .doc-date{ font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--line); margin-bottom: 30px; }
+  .doc .doc-date strong{ color: var(--line); font-weight: 500; }
+  .doc p.action{ margin: 22px 0 26px; }
+
+  /* ---------- FAQ (Auto Workshop) ---------- */
+  .faq{ display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .faq details{ border: 1px solid var(--panel-line); background: var(--panel); }
+  .faq summary{
+    cursor: pointer; list-style: none; padding: 16px 22px; font-weight: 600; font-size: 15px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .faq summary::-webkit-details-marker{ display: none; }
+  .faq summary::after{ content: "+"; margin-left: auto; font-family: "IBM Plex Mono", monospace; color: var(--accent); }
+  .faq details[open] summary::after{ content: "−"; }
+  .faq details[open] summary{ border-bottom: 1px solid var(--panel-line); }
+  .faq .answer{ padding: 14px 22px 18px; font-size: 15px; color: var(--ink-dim); }
+  .badge{ font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; color: var(--accent); border: 1px solid var(--accent-dim); padding: 1px 7px; }
+  .doc .cta-end{ margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--panel-line); }
+  .doc .cta-end h2{ border: 0; padding: 0; margin: 0 0 10px; }
+
+  @media (max-width: 560px){
+    .topnav a.back{ display: none; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Torna alla Home</a>
-        <h1>Domande Frequenti (FAQ)</h1>
 
-        <div class="faq-item">
-            <div class="faq-question">Cosa fa esattamente Auto Workshop Pro?</div>
-            <div class="faq-answer">
-                È il gestionale definitivo creato su misura per le autofficine, ora disponibile sia per computer <strong>Desktop</strong> che per <strong>Tablet</strong>. Ti permette di creare preventivi e fatture in pochi secondi, gestire l'anagrafica dei clienti e il loro parco auto, segnare gli appuntamenti sul calendario, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'interfaccia pulita, rapida e senza distrazioni.
-            </div>
-        </div>
+<div class="sheet">
+  <span class="tick tl"></span><span class="tick tr"></span>
+  <span class="tick bl"></span><span class="tick br"></span>
 
-        <div class="faq-item">
-            <div class="faq-question">Posso segnare gli appuntamenti in officina? <span class="badge-new">NOVITÀ</span></div>
-            <div class="faq-answer">
-                Certamente! Abbiamo introdotto un <strong>Calendario integrato</strong>. Ora puoi aggiungere gli appuntamenti dei tuoi clienti, pianificare i lavori in ingresso e tenere la tua agenda sempre sotto controllo direttamente dall'app.
-            </div>
-        </div>
+  <header class="topbar">
+    <a class="wordmark" href="./">Auto Workshop Pro</a>
+    <nav class="topnav">
+      <a class="back" href="./">← Torna alla home</a>
+      <a href="./#prezzi">Prezzi</a>
+      <a href="./#supporto">Supporto</a>
+    </nav>
+  </header>
 
-        <div class="faq-item">
-            <div class="faq-question">Come funzionano le notifiche? <span class="badge-new">NOVITÀ</span></div>
-            <div class="faq-answer">
-                La tua Dashboard principale è ora dotata di un centro notifiche intelligente. Ti avviserà tempestivamente per eventi importanti e ti segnalerà subito quando è disponibile un nuovo aggiornamento del software, così sarai sempre al passo con le ultime novità.
-            </div>
-        </div>
+  <main class="doc">
+    <div class="doc-inner">
+              <h1>Domande Frequenti (FAQ)</h1>
 
-        <div class="faq-item">
-            <div class="faq-question">L'app è a pagamento o c'è una prova? <span class="badge-new">AGGIORNATO</span></div>
-            <div class="faq-answer">
-                Auto Workshop Pro non scade mai! Offriamo una <strong>versione Base (Freemium) gratuita per sempre</strong>, che ti permette di effettuare fino a 15 preventivi al mese ed eseguire backup manuali.<br><br>
-                Se desideri eliminare il limite mensile e sbloccare funzioni esclusive (come i preventivi illimitati e il Backup Automatico su Google Drive), puoi passare alla <strong>versione Premium con un SINGOLO pagamento a vita</strong>. Nessun abbonamento mensile o costo nascosto!
-            </div>
+              <div class="faq">
+      <details>
+        <summary>Cosa fa esattamente Auto Workshop Pro?</summary>
+        <div class="answer">
+          È il gestionale definitivo creato su misura per le autofficine, ora disponibile sia per computer <strong>Desktop</strong> che per <strong>Tablet</strong>. Ti permette di creare preventivi e fatture in pochi secondi, gestire l'anagrafica dei clienti e il loro parco auto, segnare gli appuntamenti sul calendario, tenere traccia dello storico delle riparazioni, monitorare le fatture dei fornitori e avere statistiche chiare sugli utili. Tutto in un'interfaccia pulita, rapida e senza distrazioni.
         </div>
+      </details>
+      <details>
+        <summary>Posso segnare gli appuntamenti in officina? <span class="badge">NOVITÀ</span></summary>
+        <div class="answer">
+          Certamente! Abbiamo introdotto un <strong>Calendario integrato</strong>. Ora puoi aggiungere gli appuntamenti dei tuoi clienti, pianificare i lavori in ingresso e tenere la tua agenda sempre sotto controllo direttamente dall'app.
+        </div>
+      </details>
+      <details>
+        <summary>Come funzionano le notifiche? <span class="badge">NOVITÀ</span></summary>
+        <div class="answer">
+          La tua Dashboard principale è ora dotata di un centro notifiche intelligente. Ti avviserà tempestivamente per eventi importanti e ti segnalerà subito quando è disponibile un nuovo aggiornamento del software, così sarai sempre al passo con le ultime novità.
+        </div>
+      </details>
+      <details>
+        <summary>L'app è a pagamento o c'è una prova? <span class="badge">AGGIORNATO</span></summary>
+        <div class="answer">
+          Auto Workshop Pro non scade mai! Offriamo una <strong>versione Base (Freemium) gratuita per sempre</strong>, che ti permette di effettuare fino a 15 preventivi al mese ed eseguire backup manuali.<br><br>
+                      Se desideri eliminare il limite mensile e sbloccare funzioni esclusive (come i preventivi illimitati e il Backup Automatico su Google Drive), puoi passare alla <strong>versione Premium con un SINGOLO pagamento a vita</strong>. Nessun abbonamento mensile o costo nascosto!
+        </div>
+      </details>
+      <details>
+        <summary>Come si installa il software? È disponibile per smartphone?</summary>
+        <div class="answer">
+          <p><strong>Su PC (Windows/Linux):</strong> L'installazione è a prova di principiante! Il programma è "Portable": ti basterà scaricare il file, estrarre la cartella ed è subito pronto all'uso, senza database complessi da configurare.</p>
+                      <p><strong>Su Tablet (Android):</strong> Puoi scaricarlo direttamente dal Google Play Store.</p>
+                      <p><em>Nota tecnica:</em> Per garantire la massima leggibilità dell'interfaccia grafica e la comodità d'uso tra i ponti dell'officina, il software è ottimizzato <strong>esclusivamente per Tablet (da 7 pollici in su)</strong> e computer. Non è supportato su smartphone.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Serve una connessione internet per usarlo?</summary>
+        <div class="answer">
+          No! Auto Workshop Pro funziona in locale. Il database risiede sul tuo dispositivo, garantendoti velocità estrema e privacy assoluta sui dati dei clienti. La connessione internet è richiesta unicamente per il <strong>Backup Automatico su Google Drive</strong> (nella versione Premium) e per la verifica periodica della licenza.
+        </div>
+      </details>
+      <details>
+        <summary>Come faccio a non perdere i dati in caso di guasto?</summary>
+        <div class="answer">
+          <ul>
+                          <li><strong>Nella versione Base (Gratuita):</strong> Puoi usare la funzione "Esporta Backup" per salvare manualmente i tuoi dati su una chiavetta USB e ripristinarli quando vuoi in totale autonomia.</li>
+                          <li><strong>Nella versione Premium:</strong> L'app effettua automaticamente un <strong>Backup sul tuo Google Drive personale ogni 8 ore. Il sistema è intelligente e conserva sempre in memoria gli ultimi 5 salvataggi</strong>. In caso di guasto del PC o del Tablet, ti basterà installare l'app sul nuovo dispositivo e cliccare su "Ripristina da Google Drive" per riavere tutto indietro istantaneamente!</li>
+                      </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Posso usare la licenza Premium su più dispositivi?</summary>
+        <div class="answer">
+          Le condizioni d'uso variano in base alla piattaforma utilizzata:
+                      <ul>
+                          <li><strong>Versione Desktop (PC):</strong> La licenza è strettamente legata all'hardware ed è valida per una (1) singola postazione PC aziendale.</li>
+                          <li><strong>Versione Tablet (Android):</strong> La licenza è associata al tuo Account Google (Gmail), permettendoti di utilizzarla sui dispositivi touch associati a quell'account, in conformità con le regole del Google Play Store.</li>
+                      </ul>
+        </div>
+      </details>
+      </div>
 
-        <div class="faq-item">
-            <div class="faq-question">Come si installa il software? È disponibile per smartphone?</div>
-            <div class="faq-answer">
-                <p><strong>Su PC (Windows/Linux):</strong> L'installazione è a prova di principiante! Il programma è "Portable": ti basterà scaricare il file, estrarre la cartella ed è subito pronto all'uso, senza database complessi da configurare.</p>
-                <p><strong>Su Tablet (Android):</strong> Puoi scaricarlo direttamente dal Google Play Store.</p>
-                <p><em>Nota tecnica:</em> Per garantire la massima leggibilità dell'interfaccia grafica e la comodità d'uso tra i ponti dell'officina, il software è ottimizzato <strong>esclusivamente per Tablet (da 7 pollici in su)</strong> e computer. Non è supportato su smartphone.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Serve una connessione internet per usarlo?</div>
-            <div class="faq-answer">
-                No! Auto Workshop Pro funziona in locale. Il database risiede sul tuo dispositivo, garantendoti velocità estrema e privacy assoluta sui dati dei clienti. La connessione internet è richiesta unicamente per il <strong>Backup Automatico su Google Drive</strong> (nella versione Premium) e per la verifica periodica della licenza.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Come faccio a non perdere i dati in caso di guasto?</div>
-            <div class="faq-answer">
-                <ul>
-                    <li><strong>Nella versione Base (Gratuita):</strong> Puoi usare la funzione "Esporta Backup" per salvare manualmente i tuoi dati su una chiavetta USB e ripristinarli quando vuoi in totale autonomia.</li>
-                    <li><strong>Nella versione Premium:</strong> L'app effettua automaticamente un <strong>Backup sul tuo Google Drive personale ogni 8 ore. Il sistema è intelligente e conserva sempre in memoria gli ultimi 5 salvataggi</strong>. In caso di guasto del PC o del Tablet, ti basterà installare l'app sul nuovo dispositivo e cliccare su "Ripristina da Google Drive" per riavere tutto indietro istantaneamente!</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Posso usare la licenza Premium su più dispositivi?</div>
-            <div class="faq-answer">
-                Le condizioni d'uso variano in base alla piattaforma utilizzata:
-                <ul>
-                    <li><strong>Versione Desktop (PC):</strong> La licenza è strettamente legata all'hardware ed è valida per una (1) singola postazione PC aziendale.</li>
-                    <li><strong>Versione Tablet (Android):</strong> La licenza è associata al tuo Account Google (Gmail), permettendoti di utilizzarla sui dispositivi touch associati a quell'account, in conformità con le regole del Google Play Store.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>Pronto a trasformare la tua officina?</h2>
-            <p>Il modo migliore per capire se Auto Workshop Pro fa per te è provarlo direttamente al lavoro.</p>
-            <a href="index.html" class="btn-download">Scarica Subito la Versione Gratuita</a>
-        </div>
+      <div class="cta-end">
+                  <h2>Pronto a trasformare la tua officina?</h2>
+                  <p>Il modo migliore per capire se Auto Workshop Pro fa per te è provarlo direttamente al lavoro.</p>
+                  <a href="index.html" class="btn btn-primary">Scarica Subito la Versione Gratuita</a>
+      </div>
     </div>
+  </main>
 
-    <script>
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                if (parent.classList.contains('active')) {
-                    parent.classList.remove('active');
-                } else {
-                    document.querySelectorAll('.faq-item').forEach(child => child.classList.remove('active'));
-                    parent.classList.add('active');
-                }
-            });
-        });
-    </script>
+  <footer>
+    <span>&copy; 2026 Auto Workshop Pro</span>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Termini</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <span>Un progetto di <a href="https://klleshi.com/">Kastriot Lleshi</a></span>
+  </footer>
+</div>
+
 </body>
 </html>
