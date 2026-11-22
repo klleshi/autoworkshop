@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQLVQRZKXP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JQLVQRZKXP');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Auto Workshop Pro - Il gestionale offline definitivo per la tua autofficina, ora su PC e Tablet.">
 <link rel="canonical" href="https://autoworkshop.klleshi.com/" />
 <title>Auto Workshop Pro</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 
 <style>
   :root{
@@ -391,9 +380,9 @@
     </ul>
 
     <div class="cta-group">
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop" onclick="gtag('event','download_click',{platform:'tablet',version:'1.3.0',source:'hero'});">Scarica per tablet<small>Google Play, 7" o superiore</small></a>
-      <a class="btn" href="/downloads/AutoWorkShop_windows.zip" onclick="gtag('event','download_click',{platform:'windows',version:'1.3.0',source:'hero'});">Scarica per Windows<small>v1.3.0</small></a>
-      <a class="btn" href="/downloads/AutoWorkShop_linux.zip" onclick="gtag('event','download_click',{platform:'linux',version:'1.3.0',source:'hero'});">Scarica per Linux<small>v1.3.0</small></a>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.github.klleshi.auto_workshop">Scarica per tablet<small>Google Play, 7" o superiore</small></a>
+      <a class="btn" href="/downloads/AutoWorkShop_windows.zip">Scarica per Windows<small>v1.3.0</small></a>
+      <a class="btn" href="/downloads/AutoWorkShop_linux.zip">Scarica per Linux<small>v1.3.0</small></a>
     </div>
   </section>
 
@@ -533,35 +522,25 @@
   var WIN_ZIP = '/downloads/AutoWorkShop_windows.zip';
   var LINUX_ZIP = '/downloads/AutoWorkShop_linux.zip';
 
-  var freeHref, freePlatform, premiumHref, premiumPlatform;
+  var freeHref, premiumHref;
 
   if (isAndroid){
-    freeHref = PLAY_STORE; freePlatform = 'tablet';
-    premiumHref = PLAY_STORE; premiumPlatform = 'tablet';
+    freeHref = PLAY_STORE;
+    premiumHref = PLAY_STORE;
   } else if (isLinux){
-    freeHref = LINUX_ZIP; freePlatform = 'linux';
-    premiumHref = LEMONSQUEEZY; premiumPlatform = 'desktop';
+    freeHref = LINUX_ZIP;
+    premiumHref = LEMONSQUEEZY;
   } else {
     // Default: Windows o piattaforma non riconosciuta -> Desktop
-    freeHref = WIN_ZIP; freePlatform = 'windows';
-    premiumHref = LEMONSQUEEZY; premiumPlatform = 'desktop';
+    freeHref = WIN_ZIP;
+    premiumHref = LEMONSQUEEZY;
   }
 
   var freeBtn = document.getElementById('cta-free');
   var premiumBtn = document.getElementById('cta-premium');
 
-  if (freeBtn){
-    freeBtn.href = freeHref;
-    freeBtn.addEventListener('click', function(){
-      gtag('event','download_click',{platform:freePlatform,version:'1.3.0',source:'pricing_free'});
-    });
-  }
-  if (premiumBtn){
-    premiumBtn.href = premiumHref;
-    premiumBtn.addEventListener('click', function(){
-      gtag('event','purchase_click',{platform:premiumPlatform,version:'1.3.0',source:'pricing_premium'});
-    });
-  }
+  if (freeBtn){ freeBtn.href = freeHref; }
+  if (premiumBtn){ premiumBtn.href = premiumHref; }
 })();
 </script>
 

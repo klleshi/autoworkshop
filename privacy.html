@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy | Auto Workshop Pro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
   :root{
     --bg: #10203A;
@@ -140,14 +138,30 @@
   <main class="doc">
     <div class="doc-inner">
       <h1>Informativa sulla Privacy</h1>
-      <p class="doc-date"><em>Ultimo aggiornamento: 21 Novembre 2026</em></p>
+      <p class="doc-date"><em>Ultimo aggiornamento: 22 Novembre 2026</em></p>
 
-      <h2>1. Raccolta e Memorizzazione dei Dati</h2>
+      <h2>1. Titolare del Trattamento</h2>
+      <p>Il titolare del trattamento dei dati è <strong>Kastriot Lleshi</strong>, persona fisica, sviluppatore di Auto Workshop Pro. Per qualsiasi richiesta sulla privacy scrivi a <a href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a>.</p>
+
+      <h2>2. Raccolta e Memorizzazione dei Dati</h2>
       <p>
       Auto Workshop Pro è un'applicazione per Desktop e Tablet progettata per funzionare completamente offline. Nessun dato sensibile inserito nell'applicazione (clienti, fatture, veicoli) viene trasmesso ai nostri server. Tutti i dati risiedono esclusivamente in locale sul dispositivo dell'utente.
       </p>
+      <p>Per far funzionare la licenza Premium l'app tratta invece alcuni dati dell'account e dei dispositivi, descritti nella sezione 3. Non contengono mai i dati della tua officina.</p>
 
-      <h2>2. Sicurezza e Backup Cloud (Google Drive)</h2>
+      <h2>3. Dati dell'Account e della Licenza</h2>
+      <p><strong>Dalla versione 2.0.0</strong>, per usare Premium e il backup su Google Drive accedi con il tuo account Google; la Versione Base funziona anche senza accesso. Con l'accesso trattiamo:</p>
+      <ul>
+          <li><strong>Account:</strong> l'indirizzo email e l'identificativo del tuo account Google, ricevuti tramite Firebase Authentication (Google), più un identificativo interno, la sua impronta crittografica e le date di creazione e di ultimo accesso.</li>
+          <li><strong>Dispositivi collegati:</strong> un identificativo casuale generato dall'app al primo avvio (non il numero di serie del dispositivo), il nome del dispositivo (sul computer il nome del PC, sul tablet marca e modello), il sistema operativo e le date di collegamento e di ultimo accesso.</li>
+          <li><strong>Acquisti e abbonamenti:</strong> il prodotto, il piano, lo stato (per esempio in prova, attivo, disdetto, rimborsato), le date e gli identificativi assegnati dal negozio (numero d'ordine, numero dell'abbonamento, cliente). Di un acquisto a vita su Google Play conserviamo solo un'impronta anonima del codice d'acquisto; il codice di un abbonamento Google Play è conservato cifrato, perché serve a verificarne lo stato. Registriamo anche se hai già usato la prova gratuita e le eventuali licenze omaggio.</li>
+          <li><strong>Certificato della licenza:</strong> un file firmato, salvato solo sul tuo dispositivo, che fa funzionare Premium anche senza internet.</li>
+          <li><strong>Registri tecnici del server:</strong> l'identificativo interno dell'account, la versione dell'app e l'esito delle richieste; mai l'email né il nome del dispositivo.</li>
+      </ul>
+      <p><strong>La versione 1.3.0</strong> non chiede l'accesso con Google, ma invia a Firebase (Google), legati a un identificativo anonimo: un identificativo del dispositivo, la data d'installazione, la piattaforma, la data dell'ultimo accesso e lo stato Premium; dopo un acquisto anche il codice della licenza o dell'acquisto, il negozio e la data. Sui computer la chiave di licenza viene verificata con Lemon Squeezy.</p>
+      <p><strong>Controllo degli aggiornamenti:</strong> l'app chiede a GitHub se esiste una versione nuova; GitHub riceve l'indirizzo IP del dispositivo, come per la visita a qualsiasi sito.</p>
+
+      <h2>4. Sicurezza e Backup Cloud (Google Drive)</h2>
       <p>
       L'applicazione opera principalmente offline sul tuo dispositivo. La <strong>Versione Base (Freemium)</strong> permette esclusivamente il salvataggio e il ripristino manuale dei dati in locale. Se decidi di sbloccare la <strong>Versione Premium</strong>, Auto Workshop Pro offre una funzionalità di Backup Automatico per proteggere i tuoi dati collegando il tuo account Google Drive. In tal caso:
       </p>
@@ -158,24 +172,72 @@
           <li>I file di backup risiedono nel tuo spazio di archiviazione personale di Google Drive, sotto il tuo completo controllo, e non transitano mai su server di nostra proprietà o di terze parti.</li>
       </ul>
 
-      <h2>3. Condivisione dei Dati</h2>
-      <p>Non vendiamo, non scambiamo e non trasferiamo in alcun modo a terze parti i tuoi dati, semplicemente perché non ne entriamo mai in possesso.</p>
+      <h2>5. Finalità e Basi Giuridiche</h2>
+      <ul>
+          <li><strong>Fornire Premium e il backup:</strong> i dati dell'account, dei dispositivi e degli acquisti, il certificato e i dati della versione 1.3.0 servono a verificare la licenza e a farla funzionare sui tuoi dispositivi. Base giuridica: esecuzione del contratto (art. 6.1.b del GDPR).</li>
+          <li><strong>Sicurezza e prevenzione delle frodi:</strong> il limite ai nuovi dispositivi, l'elenco dei pagamenti rimborsati o contestati e i registri tecnici. Base giuridica: legittimo interesse a proteggere il servizio e le licenze (art. 6.1.f).</li>
+          <li><strong>Assistenza e suggerimenti:</strong> le email che ci scrivi e i messaggi del modulo «Invia feedback». Base giuridica: esecuzione del contratto quando riguardano la tua licenza, altrimenti legittimo interesse a risponderti e a migliorare l'app.</li>
+          <li><strong>Obblighi di legge:</strong> rispondere alle richieste delle autorità (art. 6.1.c). I documenti fiscali delle vendite li gestiscono e conservano i rivenditori, Paddle e Google, per i loro obblighi di legge.</li>
+      </ul>
 
-      <h2>4. Uso dei Dati delle API di Google (Limitazione d'Uso)</h2>
+      <h2>6. Condivisione dei Dati e Destinatari</h2>
+      <p>Non vendiamo, non scambiamo e non trasferiamo in alcun modo a terze parti i tuoi dati. I dati della tua officina non li riceviamo mai; quelli dell'account e della licenza li trattano solo i fornitori che servono a far funzionare il servizio:</p>
+      <ul>
+          <li><strong>Google</strong> (Google Cloud e Firebase): l'accesso con Google (Firebase Authentication) e il server delle licenze, che gira nell'Unione Europea (funzioni in Belgio, database su server europei), con i suoi registri tecnici. Per questi servizi Google tratta i dati per nostro conto, come responsabile del trattamento.</li>
+          <li><strong>I rivenditori:</strong> Google Play, Paddle e, per la versione 1.3.0, Lemon Squeezy gestiscono i pagamenti come titolari autonomi (vedi la sezione 8).</li>
+          <li><strong>GitHub:</strong> ospita questo sito e le informazioni sulle nuove versioni dell'app, e riceve l'indirizzo IP di chi li visita o scarica.</li>
+          <li><strong>Google Forms:</strong> raccoglie i messaggi del modulo «Invia feedback».</li>
+      </ul>
+
+      <h2>7. Uso dei Dati delle API di Google (Limitazione d'Uso)</h2>
       <p>
       L'uso e il trasferimento ad altre app da parte di Auto Workshop Pro di informazioni ricevute dalle API di Google rispetteranno la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, inclusi i requisiti di Uso Limitato (Limited Use requirements). Non vendiamo, condividiamo o elaboriamo in alcun modo i tuoi dati cloud per scopi pubblicitari o commerciali.
       </p>
 
-      <h2>5. Cancellazione dei Dati</h2>
+      <h2>8. Dati di Pagamento</h2>
+      <p>L'acquisto della licenza Premium è gestito tramite Google Play per la parte Android (Tablet). Per la parte Desktop è gestito da Paddle.com dalla versione 2.0.0, e da Lemon Squeezy per la versione 1.3.0. Quando acquisti una licenza, i dati della tua carta di credito e le informazioni di fatturazione sono gestiti in modo sicuro e crittografato direttamente da Google Play, Paddle e Lemon Squeezy, che agiscono in totale conformità con le normative vigenti in materia di privacy e GDPR. Noi non vediamo mai i dati della tua carta: il rivenditore ci mostra solo i dati dell'ordine che servono per l'assistenza e i rimborsi, cioè numero d'ordine, prodotto, importo, data e paese e, per gli acquisti dai computer, l'email dell'acquirente.</p>
+      <p>Paddle.com è il nostro rivenditore (Merchant of Record): tratta i dati di pagamento e di fatturazione come titolare autonomo, secondo la propria <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.</p>
+
+      <h2>9. Conservazione dei Dati</h2>
+      <ul>
+          <li><strong>Account, dispositivi e acquisti:</strong> finché l'account esiste. Puoi eliminarlo dall'app (pulsante <strong>Premium</strong> → <strong>Elimina account</strong>, dalla versione 2.0.0) o scrivendoci dall'indirizzo dell'account: in quel caso lo eliminiamo entro 30 giorni dalla richiesta. Dopo l'eliminazione restano solo un'impronta anonima degli acquisti e degli abbonamenti Google Play (non il codice d'acquisto), il numero degli abbonamenti comprati sul sito con lo stato e le date, senza niente che li leghi a te, e i numeri degli ordini rimborsati. Servono a ricollegare l'acquisto se crei di nuovo l'account con lo stesso account Google, e a impedire che un acquisto rimborsato venga riutilizzato.</li>
+          <li><strong>Registri tecnici del server:</strong> si cancellano da soli entro 30 giorni.</li>
+          <li><strong>Dati della versione 1.3.0 su Firebase:</strong> li conserviamo finché servono alla licenza della 1.3.0 e li cancelliamo al più tardi 12 mesi dopo l'uscita della versione 2.0.0.</li>
+          <li><strong>Email e messaggi di feedback:</strong> per il tempo necessario a rispondere e a gestire la richiesta, poi al massimo 2 anni.</li>
+          <li><strong>Dati di pagamento:</strong> li conservano Google Play, Paddle e Lemon Squeezy secondo i loro obblighi di legge.</li>
+          <li><strong>Backup su Google Drive:</strong> restano nel tuo Drive, gli ultimi 5, finché non li cancelli tu (vedi la sezione 10).</li>
+      </ul>
+
+      <h2>10. Cancellazione dei Dati</h2>
       <p>
       Poiché tutti i dati operativi risiedono localmente, puoi procedere alla cancellazione totale e definitiva di ogni informazione disinstallando l'applicazione o cancellando i dati dell'app dalle impostazioni del sistema operativo del tuo dispositivo. Se hai utilizzato la funzione di Backup Automatico della versione Premium, puoi eliminare definitivamente i file di salvataggio accedendo direttamente al tuo account Google Drive e cancellando la relativa cartella. Si consiglia di effettuare un backup di sicurezza su USB prima di procedere, poiché la cancellazione locale è irreversibile.
       </p>
+      <p>Disinstallare l'app non elimina l'account: per eliminare i dati dell'account e della licenza che conserviamo sul server, vedi la sezione 9.</p>
 
-      <h2>6. Dati di Pagamento</h2>
-      <p>L'acquisto della licenza Premium è gestito tramite Google Play per la parte Android (Tablet). Per la parte Desktop è gestito da Paddle.com dalla versione 2.0.0, e da Lemon Squeezy per la versione 1.3.0. Quando acquisti una licenza, i dati della tua carta di credito e le informazioni di fatturazione sono gestiti in modo sicuro e crittografato direttamente da Google Play, Paddle e Lemon Squeezy, che agiscono in totale conformità con le normative vigenti in materia di privacy e GDPR. Noi non visualizziamo, elaboriamo o conserviamo mai i tuoi dati finanziari.</p>
-      <p>Paddle.com è il nostro rivenditore (Merchant of Record): tratta i dati di pagamento e di fatturazione come titolare autonomo, secondo la propria <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.</p>
+      <h2>11. I Tuoi Diritti</h2>
+      <p>Puoi chiederci in ogni momento di accedere ai tuoi dati, di correggerli, di cancellarli, di limitarne il trattamento, di riceverli in un formato leggibile da un computer (portabilità) e di opporti al trattamento basato sul legittimo interesse. Scrivi a <a href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a>, se possibile dall'indirizzo del tuo account Google. Rispondiamo entro un mese; nei casi complessi il termine può allungarsi di altri due mesi, e in quel caso te lo diciamo entro il primo mese.</p>
+      <p>Se ritieni che il trattamento dei tuoi dati violi il GDPR, puoi presentare un reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>) o all'autorità di controllo del paese in cui vivi o lavori.</p>
 
-      <h2>7. Contatti</h2>
+      <h2>12. Trasferimenti fuori dall'Unione Europea</h2>
+      <p>Alcuni fornitori hanno sede fuori dall'Unione Europea: Google, GitHub e Lemon Squeezy negli Stati Uniti, Paddle nel Regno Unito. I trasferimenti avvengono solo con le garanzie previste dal GDPR: una decisione di adeguatezza della Commissione europea, dove esiste (per esempio l'EU-U.S. Data Privacy Framework, per i fornitori statunitensi che vi aderiscono), oppure le clausole contrattuali standard approvate dalla Commissione.</p>
+
+      <h2>13. Sicurezza dei Dati</h2>
+      <p>Proteggiamo i dati con misure adeguate al loro tipo:</p>
+      <ul>
+          <li>le comunicazioni tra l'app e il server delle licenze sono cifrate (HTTPS);</li>
+          <li>i dati della tua officina restano sul tuo dispositivo e non passano dal nostro server;</li>
+          <li>i codici d'acquisto sono conservati solo come impronta anonima o cifrati;</li>
+          <li>i registri tecnici non contengono email né nomi dei dispositivi;</li>
+          <li>l'accesso ai sistemi del server è riservato allo sviluppatore.</li>
+      </ul>
+      <p>Nessun sistema è sicuro al cento per cento: se scoprissimo una violazione che mette a rischio i tuoi dati, ti avviseremo come prevede il GDPR.</p>
+
+      <h2>14. Cookie</h2>
+      <p>Questo sito non usa cookie, né di analisi né di profilazione, e non carica contenuti da altri siti: anche i caratteri sono ospitati qui. GitHub, che ospita il sito, registra l'indirizzo IP dei visitatori per motivi di sicurezza.</p>
+      <p>Fanno eccezione le pagine di pagamento, che si aprono dall'app: caricano Paddle.js, il sistema di pagamento di Paddle, che può usare cookie e tecnologie simili necessari al pagamento e alla prevenzione delle frodi, come descritto nella sua <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer">informativa</a>.</p>
+      <p>L'app non usa cookie.</p>
+
+      <h2>15. Contatti</h2>
       <p>Per qualsiasi domanda riguardante questa informativa sulla privacy, puoi contattarci all'indirizzo: <a href="mailto:klleshi99@gmail.com">klleshi99@gmail.com</a>.</p>
     </div>
   </main>
